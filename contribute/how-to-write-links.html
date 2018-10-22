@@ -1,0 +1,245 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>How to use links in documentation | LuzFaltex Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="How to use links in documentation | LuzFaltex Documentation ">
+    <meta name="generator" content="docfx 2.40.0.0">
+    
+    <link rel="preload" href="../styles/search-worker.js" as="script">
+    <link rel="preload" href="../fonts/glyphicons-halflings-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.minify.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/master.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/theme-switcher.css">
+    <link href="https://cdn.rawgit.com/noelboss/featherlight/1.7.6/release/featherlight.min.css" type="text/css" rel="stylesheet">
+    <meta name="theme-color" content="#99AAB5">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    <meta id="docfx-style:rel" content="../">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="using-links-in-documentation">Using links in documentation</h1>
+
+<p>This article describes how to use hyperlinks from pages hosted at docs.luzfaltex.com. Links are easy to add into markdown with a few varying conventions. Links point users to content in the same page, point off into other neighboring pages, or point to external sites and URLs.</p>
+<p>The docs.luzfaltex.com site backend uses Open Publishing Services (OPS) which implements DocFX Flavored Markdown (DFM). DFM is highly compatible with GitHub Flavored Markdown (GFM), and DFM adds additional functionality through Markdown extensions.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>All links must be secure (<code>https</code> vs <code>http</code>) whenever the target supports it (which the vast majority should).</p>
+</div>
+<h2 id="link-text">Link text</h2>
+<p>The words that you include in link text should be friendly. In other words, they should be normal English words or the title of the page that you're linking to.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Do not use &quot;click here.&quot; It's bad for SEO and doesn't adequately describe the target.</p>
+</div>
+<p><strong>Correct:</strong></p>
+<ul>
+<li><p><code>For more information, see the [contributor guide index](https://github.com/LuzFaltex/docs/blob/master/docs/contribute/index.md).</code></p>
+</li>
+<li><p><code>For more details, see the [SET TRANSACTION ISOLATION LEVEL](https://msdn.microsoft.com/library/ms173763.aspx) reference.</code></p>
+</li>
+</ul>
+<p><strong>Incorrect:</strong></p>
+<ul>
+<li><p><code>For more details, see [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).</code></p>
+</li>
+<li><p><code>For more information, click [here](https://github.com/LuzFaltex/docs/blob/master/docs/contribute/index.md).</code></p>
+</li>
+</ul>
+<h2 id="links-from-one-article-to-another">Links from one article to another</h2>
+<p>To create an inline link from a Docs technical article to another Docs technical article within the same docset, use the following link syntax:</p>
+<ul>
+<li><p>An article in a directory links to another article in the same directory:</p>
+<p><code>[link text](article-name.md)</code></p>
+</li>
+<li><p>An article links from a subdirectory to an article in the root directory:</p>
+<p><code>[link text](../article-name.md)</code></p>
+</li>
+<li><p>An article in the root directory links to an article in a subdirectory:</p>
+<p><code>[link text](./directory/article-name.md)</code></p>
+</li>
+<li><p>An article in a subdirectory links to an article in another subdirectory:</p>
+<p><code>[link text](../directory/article-name.md)</code></p>
+</li>
+<li><p>An article linking across docsets (even if in the same repository):</p>
+</li>
+<li><p> <code>[link text](./directory/article-name)</code></p>
+</li>
+</ul>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>None of the above examples use the <code>~/</code> as part of the link. If you are linking to a path at the root of the repository, start with the <code>/</code>. Including the <code>~/</code> produces invalid links when navigating the source repositories on GitHub. Starting the path with <code>/</code> resolves correctly.</p>
+</div>
+<h2 id="links-to-anchors">Links to anchors</h2>
+<p>You do not have to create anchors. They're automatically generated at publishing time for all H2 headings. The only thing you have to do is create links to the H2 sections.</p>
+<ul>
+<li><p>To link to a heading within the same article:</p>
+<p><code>[link](#the-text-of-the-H2-section-separated-by-hyphens)</code>
+<code>[Create cache](#create-cache)</code></p>
+</li>
+<li><p>To link to an anchor in another article in the same subdirectory:</p>
+<p><code>[link text](article-name.md#anchor-name)</code>
+<code>[Configure your profile](media-services-create-account.md#configure-your-profile)</code></p>
+</li>
+<li><p>To link to an anchor in another service subdirectory:</p>
+<p><code>[link text](../directory/article-name.md#anchor-name)</code>
+<code>[Configure your profile](../directory/media-services-create-account.md#configure-your-profile)</code></p>
+</li>
+</ul>
+<h2 id="links-from-includes">Links from includes</h2>
+<p>Because include files are located in another directory, you must use longer relative paths. To link to an article from an include file, use this format:</p>
+<pre><code>[link text](../articles/folder/article-name.md)
+</code></pre>
+<h2 id="links-in-selectors">Links in selectors</h2>
+<p>If you have selectors that are embedded in an include--as does the Azure documentation team--use the following link structure:</p>
+<pre><code>&gt; [AZURE.SELECTOR-LIST (Dropdown1 | Dropdown2 )]
+- [(Text1 | Example1 )](../articles/folder/article-name1.md)
+- [(Text1 | Example2 )](../articles/folder/article-name2.md)
+- [(Text2 | Example3 )](../articles/folder/article-name3.md)
+- [(Text2 | Example4 )](../articles/folder/article-name4.md) --&gt;
+</code></pre>
+<h2 id="reference-style-links">Reference-style links</h2>
+<p>You can use reference-style links to make your source content easier to read. Reference-style links replace inline link syntax with simplified syntax that allows you to move the long URLs to the end of the article. Here's <a href="https://daringfireball.net/projects/markdown/">Daring Fireball</a> 's example:</p>
+<p>Inline text:</p>
+<pre><code>I get 10 times more traffic from [Google][1] than from [Yahoo][2] or [MSN][3].
+</code></pre>
+<p>Link references at the end of the article:</p>
+<pre><code>&lt;!--Reference links in article--&gt;
+[1]: http://google.com/
+[2]: http://search.yahoo.com/
+[3]: http://search.msn.com/
+</code></pre>
+<p>Make sure that you include the space after the colon, before the link. When you link to other technical articles, if you forget to include the space, the link will be broken in the published article.</p>
+<h2 id="links-to-pages-that-are-not-part-of-the-technical-documentation-set">Links to pages that are not part of the technical documentation set</h2>
+<p>To link to a page on another LuzFaltex property (such as a pricing page, SLA page, or anything else that is not a documentation article), use an absolute URL. The goal here is that links work in GitHub and on the rendered site:</p>
+<pre><code>[link text](https://www.luzfaltex.com/forum/thread/1-welcome/)
+</code></pre>
+<h2 id="links-to-third-party-sites">Links to third-party sites</h2>
+<p>The best user experience minimizes sending users to another site. So base any links to third-party sites, which we do sometimes need, on this info:</p>
+<ul>
+<li><strong>Accountability</strong>: Link to third-party content when it's the third-party's information to share. For example, it's not LuzFaltex's place to tell people how to use Android developer tools--that is Google's story to tell. If we need to, we can explain how to use Android developer tools <em>with</em> Azure, but Google should tell the story of how to use their tools.</li>
+<li><strong>PM signoff</strong>: Request that LuzFaltex sign off on third-party content. By linking to it, we are saying something about our trust in it and our obligation if people follow the instructions.</li>
+<li><strong>Freshness reviews</strong>: Make sure that the third-party info is still current, correct, and relevant, and that the link hasn’t changed.</li>
+<li><strong>Offsite</strong>: Make users aware that they are going to another site. If the context does not make that clear, add a qualifying phrase. For example: “Prerequisites include the Android Developer Tools, which you can download on the Android Studio site.”</li>
+<li><strong>Next steps</strong>: It’s fine to add a link to, say, an MVP blog in a &quot;Next steps&quot; section. Again, just make sure that users understand they’ll be leaving the site.</li>
+<li><strong>Legal</strong>: We are covered legally under <strong>Links to Third Party Sites</strong> in the <strong>Terms of Use</strong> footer on every LuzFaltex.com page.</li>
+</ul>
+<h2 id="links-to-msdn-or-technet">Links to MSDN or TechNet</h2>
+<p>When you need to link to MSDN or TechNet, use the full link to the topic, and remove the &quot;en-us&quot; language locale from the link.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="theme-switch-field">
+                <p>Theme</p>
+                <select id="theme-switcher">
+                  <option value="dark">Dark
+                  <option value="gray">Gray
+                  <option value="light">Light
+                </select>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/LuzFaltex/docs/blob/master/docs/contribute/how-to-write-links.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            LuzFaltex (c) 2014-2018
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/noelboss/featherlight/master/release/featherlight.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../styles/plugin-featherlight.js"></script>
+    <script type="text/javascript" src="../styles/styleswitcher.js"></script>
+    <script type="text/javascript" src="https://malsup.github.io/jquery.corner.js"></script>
+    <script type="text/javascript" src="../styles/cornerify.js"></script>  </body>
+</html>

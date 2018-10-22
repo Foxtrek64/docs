@@ -1,0 +1,564 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/projects/docs/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      },
+      "is_incremental": false
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "gD0bgxYJG3hQvp3Dn1NLBQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "LRdwwvWocHb8uVov2E9aDQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "t7iiFrmuYmrKWisdq+lN6Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "contribute/additional-resources.md",
+      "output": {
+        ".html": {
+          "relative_path": "contribute/additional-resources.html",
+          "hash": "VJjk3HBeRFL6tt+6IGzcAg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "contribute/get-started-setup-github.md",
+      "output": {
+        ".html": {
+          "relative_path": "contribute/get-started-setup-github.html",
+          "hash": "z7dJHNSSGFGriel9GRj4Qg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "contribute/get-started-setup-local.md",
+      "output": {
+        ".html": {
+          "relative_path": "contribute/get-started-setup-local.html",
+          "hash": "wb8gs6BhzR6nOexUM7BbcA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "contribute/get-started-setup-tools.md",
+      "output": {
+        ".html": {
+          "relative_path": "contribute/get-started-setup-tools.html",
+          "hash": "axA/ExTDMkHPxECztoSXBg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "contribute/git-github-fundamentals.md",
+      "output": {
+        ".html": {
+          "relative_path": "contribute/git-github-fundamentals.html",
+          "hash": "NAuP1voxanC3xE4y0ny8OA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "contribute/how-to-write-docs-auth-pack.md",
+      "output": {
+        ".html": {
+          "relative_path": "contribute/how-to-write-docs-auth-pack.html",
+          "hash": "M6b1BesEUelTXaaoOfHAXA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "contribute/how-to-write-links.md",
+      "output": {
+        ".html": {
+          "relative_path": "contribute/how-to-write-links.html",
+          "hash": "QOA9WGAhgsKj3y37NpO9gQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "contribute/how-to-write-use-markdown.md",
+      "output": {
+        ".html": {
+          "relative_path": "contribute/how-to-write-use-markdown.html",
+          "hash": "CLLJNgR17Z+hgs/SEXM/4A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "contribute/how-to-write-workflows-major.md",
+      "output": {
+        ".html": {
+          "relative_path": "contribute/how-to-write-workflows-major.html",
+          "hash": "0mkIAoVAKJ67y03eCamdYg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "contribute/includes/contribute-how-to-pull-requests-apex-automation.md",
+      "output": {
+        ".html": {
+          "relative_path": "contribute/includes/contribute-how-to-pull-requests-apex-automation.html",
+          "hash": "Ax5O6EN7VK0KEhl7znkmJg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "contribute/includes/contribute-how-to-write-workflows-major-change-definition.md",
+      "output": {
+        ".html": {
+          "relative_path": "contribute/includes/contribute-how-to-write-workflows-major-change-definition.html",
+          "hash": "g5UHhmkbZD2XtZBTc7KGqw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "contribute/includes/contribute-how-to-write-workflows-pull-request-processing.md",
+      "output": {
+        ".html": {
+          "relative_path": "contribute/includes/contribute-how-to-write-workflows-pull-request-processing.html",
+          "hash": "xAsYOrsQrv2iZOBPO/Mbeg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "contribute/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "contribute/index.html",
+          "hash": "lxard5SkTEKpsF2FUBpkPA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "contribute/media/contribute-get-started-setup-local/clone-or-download.png",
+      "output": {
+        "resource": {
+          "relative_path": "contribute/media/contribute-get-started-setup-local/clone-or-download.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "contribute/media/contribute-get-started-setup-local/edit-article.png",
+      "output": {
+        "resource": {
+          "relative_path": "contribute/media/contribute-get-started-setup-local/edit-article.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "contribute/media/contribute-get-started-setup-local/fork.png",
+      "output": {
+        "resource": {
+          "relative_path": "contribute/media/contribute-get-started-setup-local/fork.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "contribute/media/contribute-get-started-setup-local/git-and-github-initial-setup.png",
+      "output": {
+        "resource": {
+          "relative_path": "contribute/media/contribute-get-started-setup-local/git-and-github-initial-setup.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "contribute/media/contribute-get-started-setup-local/gitbash-start.png",
+      "output": {
+        "resource": {
+          "relative_path": "contribute/media/contribute-get-started-setup-local/gitbash-start.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "contribute/media/contribute-get-started-setup-local/github-2fa.png",
+      "output": {
+        "resource": {
+          "relative_path": "contribute/media/contribute-get-started-setup-local/github-2fa.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "contribute/media/contribute-get-started-setup-local/github-login.png",
+      "output": {
+        "resource": {
+          "relative_path": "contribute/media/contribute-get-started-setup-local/github-login.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "contribute/media/contribute-get-started-setup-local/private-repo.png",
+      "output": {
+        "resource": {
+          "relative_path": "contribute/media/contribute-get-started-setup-local/private-repo.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "contribute/media/contribute-get-started-setup-local/public-repo.png",
+      "output": {
+        "resource": {
+          "relative_path": "contribute/media/contribute-get-started-setup-local/public-repo.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "contribute/media/documents/markdown-cheatsheet.pdf",
+      "output": {
+        "resource": {
+          "relative_path": "contribute/media/documents/markdown-cheatsheet.pdf"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "contribute/media/git-and-github-initial-setup.png",
+      "output": {
+        "resource": {
+          "relative_path": "contribute/media/git-and-github-initial-setup.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "contribute/media/index/create-pull-request.png",
+      "output": {
+        "resource": {
+          "relative_path": "contribute/media/index/create-pull-request.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "contribute/media/index/edit-article.png",
+      "output": {
+        "resource": {
+          "relative_path": "contribute/media/index/edit-article.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "contribute/media/index/editicon.png",
+      "output": {
+        "resource": {
+          "relative_path": "contribute/media/index/editicon.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "contribute/media/index/submit-pull-request.png",
+      "output": {
+        "resource": {
+          "relative_path": "contribute/media/index/submit-pull-request.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "contribute/media/public-repo.png",
+      "output": {
+        "resource": {
+          "relative_path": "contribute/media/public-repo.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "contribute/quick-create.md",
+      "output": {
+        ".html": {
+          "relative_path": "contribute/quick-create.html",
+          "hash": "89pMx7NbLIO5n18U1EySAw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "contribute/style-quick-start.md",
+      "output": {
+        ".html": {
+          "relative_path": "contribute/style-quick-start.html",
+          "hash": "asX+GfgttzO/elVKcvD+ig=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "contribute/toc.md",
+      "output": {
+        ".html": {
+          "relative_path": "contribute/toc.html",
+          "hash": "mF8N+H8c9IKba+E2xv8tZA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "contribute/validation-reference/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "contribute/validation-reference/index.html",
+          "hash": "B9p/EYDvNTCSU5oVu7TdeA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "contribute/validation-reference/locale-specific-links.md",
+      "output": {
+        ".html": {
+          "relative_path": "contribute/validation-reference/locale-specific-links.html",
+          "hash": "eeY0OGQ3OaUhGe0SQf8INg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "contribute/validation-reference/markdown-headings.md",
+      "output": {
+        ".html": {
+          "relative_path": "contribute/validation-reference/markdown-headings.html",
+          "hash": "aVCGR1OJ5KRd6v//4tDp3A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "contribute/validation-reference/media/build-validation.png",
+      "output": {
+        "resource": {
+          "relative_path": "contribute/validation-reference/media/build-validation.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "contribute/validation-reference/media/validation-details.png",
+      "output": {
+        "resource": {
+          "relative_path": "contribute/validation-reference/media/validation-details.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "contribute/validation-reference/media/validation-failed.png",
+      "output": {
+        "resource": {
+          "relative_path": "contribute/validation-reference/media/validation-failed.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "contribute/validation-reference/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "contribute/validation-reference/toc.html",
+          "hash": "Tj0PxG6CstJmkZ4ke8AWnA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "dON5GZsfqdRSPd38awQonA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "/0AZbZ6E7iq4msIPEsTnmA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build"
+      },
+      "processors": {
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build"
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
+        "incrementalPhase": "postProcessing"
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

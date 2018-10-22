@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Set up Git repository locally | LuzFaltex Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Set up Git repository locally | LuzFaltex Documentation ">
+    <meta name="generator" content="docfx 2.40.0.0">
+    
+    <link rel="preload" href="../styles/search-worker.js" as="script">
+    <link rel="preload" href="../fonts/glyphicons-halflings-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.minify.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/master.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/theme-switcher.css">
+    <link href="https://cdn.rawgit.com/noelboss/featherlight/1.7.6/release/featherlight.min.css" type="text/css" rel="stylesheet">
+    <meta name="theme-color" content="#99AAB5">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    <meta id="docfx-style:rel" content="../">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="set-up-git-repository-locally-for-documentation">Set up Git repository locally for documentation</h1>
+
+<p>This article describes the steps to set up a git repository on your local machine, with the intent to contribute to LuzFaltex documentation. Contributors may use a locally cloned repository to add new articles, do major edits on existing articles, or change artwork.</p>
+<p>You run these one-time setup activities to get started contributing:</p>
+<div class="checklist">
+<ul>
+<li>Determine the appropriate repository</li>
+<li>Fork the repository to your GitHub account</li>
+<li>Choose a local folder for the cloned files</li>
+<li>Clone the repository to your local machine</li>
+<li>Configure the upstream remote value</li>
+</ul>
+</div>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>If you're making only minor changes to an article, you <em>do not</em> need to complete the steps in this article. You can continue directly to the <a href="index.html#quick-edits-to-existing-documents">quick changes workflow</a>.</p>
+</div>
+<h2 id="overview">Overview</h2>
+<p>To contribute to LuzFaltex's documentation site, you can make and edit Markdown files locally by cloning the corresponding documentation repository. LuzFaltex requires you to fork the appropriate repository into your own github account, so that you have read/write permissions there to store your proposed changes. Then you use pull requests to merge changes into the read-only central shared repository.</p>
+<p><img src="media/git-and-github-initial-setup.png" alt="GitHub Triangle"></p>
+<p>If you're new to GitHub, watch the following video from Microsoft for a conceptual overview of the forking and cloning process:</p>
+<div class="embeddedvideo"><iframe src="https://channel9.msdn.com/Blogs/CoolMoose/Git-Repository-Setup/player?nocookie=true" frameborder="0" allowfullscreen="true"></iframe></div>
+<h2 id="fork-the-repository">Fork the repository</h2>
+<p>Using the appropriate repository, create a fork of the repository into your own GitHub account by using the GitHub website.</p>
+<p>A personal fork is required since all main documentation repositories provide read-only access. To make changes, you must submit a <a href="git-github-fundamentals.html#pull-requests">pull request</a> from your fork into the main repository. To facilitate this process, you first need your own copy of the repository, in which you have write access. A GitHub <em>fork</em> serves that purpose.</p>
+<ol>
+<li><p>Go to the main repository's GitHub page and click the <strong>Fork</strong> button on the upper right.</p>
+<p><img src="media/contribute-get-started-setup-local/fork.png" alt="GitHub profile example"></p>
+</li>
+<li><p>If you are prompted, select your GitHub account tile as the destination where the fork should be created. This prompt creates a copy of the repository within your GitHub account, known as a fork.</p>
+</li>
+</ol>
+<h2 id="choose-a-local-folder">Choose a local folder</h2>
+<p>Make a local folder to hold a copy of the repository locally. Some of the repositories can be large; up to 5 GB for azure-docs for example. Choose a location with available disk space.</p>
+<ol>
+<li><p>Choose a folder name should be easy for you to remember and type. For example, consider a root folder <code>C:\docs\</code> or make a folder in your user profile directory <code>~/Documents/docs/</code></p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Avoid choosing a local folder path that is nested inside of another git repository folder location. While it is acceptable to store the git cloned folders adjacent to each other, nesting git folders inside one another causes errors for the file tracking.</p>
+</div>
+</li>
+<li><p>Launch Git Bash</p>
+<p><img src="media/contribute-get-started-setup-local/gitbash-start.png" alt="Launch Git Bash"></p>
+<p>The default location that Git Bash starts in is typically the home directory (~) or <code>/c/users/&lt;Windows-user-account&gt;/</code> on Windows OS.</p>
+<p>To determine the current directory, type <code>pwd</code> at the $ prompt.</p>
+</li>
+<li><p>Change directory (cd) into the folder that you created for hosting the repository locally. Note that Git Bash uses the Linux convention of forward-slashes instead of back-slashes for folder paths.</p>
+<p>For example, <code>cd /c/docs/</code> or <code>cd ~/Documents/docs/</code></p>
+</li>
+</ol>
+<h2 id="create-a-local-clone">Create a local clone</h2>
+<p>Using Git Bash, prepare to run the <strong>clone</strong> command to pull a copy of a repository (your fork) down to your device on the current directory.</p>
+<h3 id="authenticate-by-using-git-credential-manager">Authenticate by using Git Credential Manager</h3>
+<p>If you installed the latest version of Git for Windows and accepted the default installation, Git Credential Manager is enabled by default. Git Credential Manager makes authentication much easier, because you don't need to recall your personal access token when re-establishing authenticated connections and remotes with GitHub.</p>
+<ol>
+<li><p>Run the <strong>clone</strong> command, by providing the repository name. Cloning downloads (clone) the forked repository on your local computer.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>You can get your fork's GitHub URL for the clone command from the <strong>Clone or download</strong> button in the GitHub UI:</p>
+<p><img src="media/contribute-get-started-setup-local/clone-or-download.png" alt="Clone or download"></p>
+</div>
+<p>Be sure to specify the path to <em>your fork</em> during the cloning process, not the main repository from which you created the fork. Otherwise, you cannot contribute changes. Your fork is referenced through your personal GitHub user account, such as <code>github.com/&lt;github-username&gt;/&lt;repo&gt;</code>.</p>
+<pre><code class="lang-bash">git clone https://github.com/&lt;github-username&gt;/&lt;repo&gt;.git
+</code></pre>
+<p>Your clone command should look similar to this example:</p>
+<pre><code class="lang-bash">git clone https://github.com/smithj/azure-docs.git
+</code></pre>
+</li>
+<li><p>When you're prompted, enter your GitHub credentials.</p>
+<p><img src="media/contribute-get-started-setup-local/github-login.png" alt="GitHub Login"></p>
+</li>
+<li><p>When you're prompted, enter your two-factor authentication code.</p>
+<p><img src="media/contribute-get-started-setup-local/github-2fa.png" alt="GitHub two-factor authentication"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Your credentials will be saved and used to authenticate future GitHub requests. You only need to do this authentication once per computer.</p>
+</div>
+</li>
+<li><p>The clone command runs and downloads a copy of the repository files from your fork into a new folder on the local disk. A new folder is made within the current folder. It may take a few minutes, depending on the repository size. You can explore the folder to see the structure once it is finished.</p>
+</li>
+</ol>
+<h2 id="configure-remote-upstream">Configure remote upstream</h2>
+<p>After cloning the repository, set up a read-only remote connection to the main repository named <strong>upstream</strong>. You use the upstream URL to keep your local repository in sync with the latest changes made by others. The <strong>git remote</strong> command is used to set the configuration value. You use the <strong>fetch</strong> command to refresh the branch info from the upstream repository.</p>
+<ol>
+<li><p>If you're using <strong>Git Credential Manager</strong>, use the following commands. Replace the &lt;repo&gt; and &lt;organization&gt; placeholders.</p>
+<pre><code class="lang-bash">cd &lt;repo&gt;
+git remote add upstream https://github.com/&lt;organization&gt;/&lt;repo&gt;.git
+git fetch upstream
+</code></pre>
+</li>
+<li><p>View the configured values and confirm the URLs are correct. Ensure the <strong>origin</strong> URLs point to your personal fork. Ensure the <strong>upstream</strong> URLs point to the main repository, such as LuzFaltexDocs or Azure.</p>
+<pre><code class="lang-bash">git remote -v 
+</code></pre>
+<p>Example remote output is shown. A fictitious git account named MyGitAccount is configured with a personal access token to access the repo azure-docs:</p>
+<pre><code class="lang-output">origin  https://github.com/MyGitAccount/azure-docs.git (fetch)
+origin  https://github.com/MyGitAccount/azure-docs.git(push)
+upstream        https://github.com/LuzFaltexDocs/azure-docs.git (fetch)
+upstream        https://github.com/LuzFaltexDocs/azure-docs.git (push)
+</code></pre>
+</li>
+<li><p>If you made a mistake, you can remove the remote value. To remove the upstream value, run the command <code>git remote remove upstream</code>.</p>
+</li>
+</ol>
+<h2 id="next-steps">Next steps</h2>
+<ul>
+<li>To learn more about adding and updating content, continue to the <a href="how-to-write-workflows-major.html">GitHub contribution workflow</a>.</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="theme-switch-field">
+                <p>Theme</p>
+                <select id="theme-switcher">
+                  <option value="dark">Dark
+                  <option value="gray">Gray
+                  <option value="light">Light
+                </select>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/LuzFaltex/docs/blob/master/docs/contribute/get-started-setup-local.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            LuzFaltex (c) 2014-2018
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/noelboss/featherlight/master/release/featherlight.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../styles/plugin-featherlight.js"></script>
+    <script type="text/javascript" src="../styles/styleswitcher.js"></script>
+    <script type="text/javascript" src="https://malsup.github.io/jquery.corner.js"></script>
+    <script type="text/javascript" src="../styles/cornerify.js"></script>  </body>
+</html>

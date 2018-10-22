@@ -1,0 +1,335 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Quickstart: Set and retrieve a secret from Azure Key Vault | Microsoft Docs | LuzFaltex Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Quickstart: Set and retrieve a secret from Azure Key Vault | Microsoft Docs | LuzFaltex Documentation ">
+    <meta name="generator" content="docfx 2.40.0.0">
+    
+    <link rel="preload" href="../styles/search-worker.js" as="script">
+    <link rel="preload" href="../fonts/glyphicons-halflings-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.minify.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/master.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/theme-switcher.css">
+    <link href="https://cdn.rawgit.com/noelboss/featherlight/1.7.6/release/featherlight.min.css" type="text/css" rel="stylesheet">
+    <meta name="theme-color" content="#99AAB5">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    <meta id="docfx-style:rel" content="../">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="quickstart-set-and-retrieve-a-secret-from-azure-key-vault">Quickstart: Set and retrieve a secret from Azure Key Vault</h1>
+
+<p>This quickstart shows you how to store a secret in Key Vault and how to retrieve it using a Web app. To see the secret value you would have to run this on Azure. The quickstart uses Node.js and Managed service identities (MSIs).</p>
+<div class="checklist">
+<ul>
+<li>Create a Key Vault.</li>
+<li>Store a secret in the Key Vault.</li>
+<li>Retrieve a secret from Key Vault.</li>
+<li>Create an Azure Web Application.</li>
+<li><a href="https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview">Enable managed service identities</a>.</li>
+<li>Grant the required permissions for the web application to read data from Key vault.</li>
+</ul>
+</div>
+<p>Before you proceed make sure that you are familiar with the <a href="https://docs.microsoft.com/azure/key-vault/key-vault-whatis#basic-concepts">basic concepts</a>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>To understand why the below tutorial is the best practice we need to understand a few concepts. Key Vault is a central repository to store secrets programmatically. But to do so applications / users need to first authenticate to Key Vault i.e. present a secret. To follow security best practices this first secret needs to be rotated periodically as well. But with <a href="https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview">Managed Service Identity</a>, applications that run in Azure are given an identity which is automatically managed by Azure. This helps solve the <strong>Secret Introduction Problem</strong> where users / applications can follow best practices and not have to worry about rotating the first secret</p>
+</div>
+<h2 id="prerequisites">Prerequisites</h2>
+<div class="zone has-pivot" data-pivot="nodejs">
+<ul>
+<li><a href="https://nodejs.org/en/">Node JS</a></li>
+</ul>
+</div>
+<div class="zone has-pivot" data-pivot="dotnet">
+<ul>
+<li><a href="https://www.microsoft.com/net/download/windows">Visual Studio 2017 version 15.7.3 or later</a> with the following workloads:
+<ul>
+<li>ASP.NET and web development</li>
+<li>.NET Core cross-platform development</li>
+</ul>
+</li>
+<li><a href="https://www.microsoft.com/net/download/windows">.NET Core 2.1 SDK or later</a></li>
+</ul>
+</div>
+<ul>
+<li>Git (<a href="https://git-scm.com/downloads">download</a>).</li>
+<li>An Azure subscription. If you don't have an Azure subscription, create a <a href="https://azure.microsoft.com/free/?WT.mc_id=A261C142F">free account</a> before you begin.</li>
+<li><a href="https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest">Azure CLI</a> version 2.0.4 or later. This is available for Windows, Mac, and Linux.</li>
+</ul>
+<h2 id="login-to-azure">Login to Azure</h2>
+<p>To log in to Azure using the CLI, you can type:</p>
+<pre><code class="lang-azurecli">az login
+</code></pre>
+<h2 id="create-resource-group">Create resource group</h2>
+<p>Create a resource group with the <a href="/cli/azure/group#az-group-create">az group create</a> command. An Azure resource group is a logical container into which Azure resources are deployed and managed.</p>
+<p>Please select a Resource Group name and fill in the placeholder.
+The following example creates a resource group named <em><yourresourcegroupname></yourresourcegroupname></em> in the <em>eastus</em> location.</p>
+<pre><code class="lang-azurecli"># To list locations: az account list-locations --output table
+az group create --name &quot;&lt;YourResourceGroupName&gt;&quot; --location &quot;East US&quot;
+</code></pre>
+<p>The resource group you just created is used throughout this tutorial.</p>
+<h2 id="create-an-azure-key-vault">Create an Azure Key Vault</h2>
+<p>Next you create a Key Vault using the resource group created in the previous step. Although “ContosoKeyVault” is used as the name for the Key Vault throughout this article, you have to use a unique name. Provide the following information:</p>
+<ul>
+<li>Vault name - <strong>Select a Key Vault Name here</strong>.</li>
+<li>Resource group name - <strong>Select a Resource Group Name here</strong>.</li>
+<li>The location - <strong>East US</strong>.</li>
+</ul>
+<pre><code class="lang-azurecli">az keyvault create --name &quot;&lt;YourKeyVaultName&gt;&quot; --resource-group &quot;&lt;YourResourceGroupName&gt;&quot; --location &quot;East US&quot;
+</code></pre>
+<p>At this point, your Azure account is the only one authorized to perform any operations on this new vault.</p>
+<h2 id="add-a-secret-to-key-vault">Add a secret to key vault</h2>
+<p>We're adding a secret to help illustrate how this works. You could be storing a SQL connection string or any other information that you need to keep securely but make available to your application. In this tutorial, the password will be called <strong>AppSecret</strong> and will store the value of <strong>MySecret</strong> in it.</p>
+<p>Type the commands below to create a secret in Key Vault called <strong>AppSecret</strong> that will store the value <strong>MySecret</strong>:</p>
+<pre><code class="lang-azurecli">az keyvault secret set --vault-name &quot;&lt;YourKeyVaultName&gt;&quot; --name &quot;AppSecret&quot; --value &quot;MySecret&quot;
+</code></pre>
+<p>To view the value contained in the secret as plain text:</p>
+<pre><code class="lang-azurecli">az keyvault secret show --name &quot;AppSecret&quot; --vault-name &quot;&lt;YourKeyVaultName&gt;&quot;
+</code></pre>
+<p>This command shows the secret information including the URI. After completing these steps, you should have a URI to a secret in an Azure Key Vault. Write this information down. You need it in a later step.</p>
+<h2 id="clone-the-repo">Clone the Repo</h2>
+<p>Clone the repo in order to make a local copy for you to edit the source by running the following command:</p>
+<pre><code class="lang-bash">git clone https://github.com/Azure-Samples/key-vault-node-quickstart.git
+</code></pre>
+<div class="zone has-pivot" data-pivot="nodejs">
+<h2 id="install-dependencies">Install dependencies</h2>
+<p>Here we install the dependencies. Run the following commands:</p>
+<pre><code>cd key-vault-node-quickstart
+npm install
+</code></pre>
+<p>This project used 2 node modules:</p>
+<ul>
+<li><a href="https://www.npmjs.com/package/ms-rest-azure">ms-rest-azure</a></li>
+<li><a href="https://www.npmjs.com/package/azure-keyvault">azure-keyvault</a></li>
+</ul>
+<h2 id="publish-the-web-application-to-azure">Publish the web application to Azure</h2>
+<p>Below are the few steps we need to do to publish the application to Azure.</p>
+<ul>
+<li><p>The 1st step is to create a <a href="https://azure.microsoft.com/services/app-service/">Azure App Service</a> Plan. You can store multiple web apps in this plan.</p>
+<pre><code class="lang-azurecli">az appservice plan create --name myAppServicePlan --resource-group myResourceGroup
+</code></pre>
+</li>
+<li><p>Next we create a web app. In the following example, replace &lt;app_name&gt; with a globally unique app name (valid characters are a-z, 0-9, and -). The runtime is set to NODE|6.9. To see all supported runtimes, run <code>az webapp list-runtimes</code></p>
+<pre><code class="lang-azurecli">az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name &lt;app_name&gt; --runtime &quot;NODE|6.9&quot; --deployment-local-git
+</code></pre>
+<p>When the web app has been created, the Azure CLI shows output similar to the following example:</p>
+<pre><code class="lang-json">{
+  &quot;availabilityState&quot;: &quot;Normal&quot;,
+  &quot;clientAffinityEnabled&quot;: true,
+  &quot;clientCertEnabled&quot;: false,
+  &quot;cloningInfo&quot;: null,
+  &quot;containerSize&quot;: 0,
+  &quot;dailyMemoryTimeQuota&quot;: 0,
+  &quot;defaultHostName&quot;: &quot;&lt;app_name&gt;.azurewebsites.net&quot;,
+  &quot;enabled&quot;: true,
+  &quot;deploymentLocalGitUrl&quot;: &quot;https://&lt;username&gt;@&lt;app_name&gt;.scm.azurewebsites.net/&lt;app_name&gt;.git&quot;
+  &lt; JSON data removed for brevity. &gt;
+}
+</code></pre>
+<p>Browse to your newly created web app and you should see a functioning web app. Replace &lt;app_name&gt; with a unique app name.</p>
+<pre><code class="lang-text">http://&lt;app name&gt;.azurewebsites.net
+</code></pre>
+<p>The above command also creates a Git-enabled app which allows you to deploy to azure from your local git.
+Local git is configured with url of 'https://<username>@&lt;app_name&gt;.scm.azurewebsites.net/&lt;app_name&gt;.git'<p>
+</username></li>
+<li><p>Create a deployment user
+After the previous command is completed you can add add an Azure remote to your local Git repository. Replace <url> with the URL of the Git remote that you got from Enable Git for your app.<p>
+<pre><code class="lang-bash">git remote add azure &lt;url&gt;
+</code></pre>
+</url></li>
+</ul>
+</div>
+<div class="zone has-pivot" data-pivot="dotnet">
+<h2 id="open-and-edit-the-solution">Open and edit the solution</h2>
+<p>Edit the program.cs file to run the sample with your specific key vault name:</p>
+<ol>
+<li>Browse to the folder key-vault-dotnet-core-quickstart.</li>
+<li>Open the key-vault-dotnet-core-quickstart.sln file in Visual Studio 2017.</li>
+<li>Open the Program.cs file and update the placeholder <em>YourKeyVaultName</em> with the name of your key vault that you created earlier.</li>
+</ol>
+<p>This solution uses <a href="https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication">AppAuthentication</a> and <a href="https://www.nuget.org/packages/Microsoft.Azure.KeyVault">KeyVault</a> NuGet libraries.</p>
+<h2 id="run-the-app">Run the app</h2>
+<p>From the main menu of Visual Studio 2017, select <strong>Debug</strong> &gt; <strong>Start</strong> without debugging. When the browser appears, go to the <strong>About</strong> page. The value for <strong>AppSecret</strong> is displayed.</p>
+<h2 id="publish-the-web-application-to-azure-1">Publish the web application to Azure</h2>
+<p>Publish this app to Azure to see it live as a web app, and to see that you can fetch the secret value:</p>
+<ol>
+<li>In Visual Studio, select the <strong>key-vault-dotnet-core-quickstart</strong> project.</li>
+<li>Select <strong>Publish</strong> &gt; <strong>Start</strong>.</li>
+<li>Create a new <strong>App Service</strong>, and then select <strong>Publish</strong>.</li>
+<li>Change the app name to <strong>keyvaultdotnetcorequickstart</strong>.</li>
+<li>Select <strong>Create</strong>.</li>
+</ol>
+<div class="embeddedvideo"><iframe src="https://sec.ch9.ms/ch9/e93d/a6ac417f-2e63-4125-a37a-8f34bf0fe93d/KeyVault_high.mp4" frameborder="0" allowfullscreen="true"></iframe></div>
+</div>
+<h2 id="enable-managed-service-identities">Enable managed service identities</h2>
+<p>Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Azure Key Vault to retrieve them. Managed Service Identity makes this easier by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code.</p>
+<ol>
+<li><p>Return to the Azure CLI.</p>
+</li>
+<li><p>Run the assign-identity command to create the identity for this application:</p>
+<pre><code class="lang-azurecli">az webapp identity assign --name &quot;keyvaultdotnetcorequickstart&quot; --resource-group &quot;&lt;YourResourceGroupName&gt;&quot;
+</code></pre>
+</li>
+</ol>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The command in this procedure is the equivalent of going to the portal and switching <strong>Managed service identity</strong> to <strong>On</strong> in the web application properties.</p>
+</div>
+<h2 id="assign-permissions-to-your-application-to-read-secrets-from-key-vault">Assign permissions to your application to read secrets from Key Vault</h2>
+<p>Make a note of the output when you publish the application to Azure. It should be of the format:</p>
+<pre><code class="lang-json">        {
+          &quot;principalId&quot;: &quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;,
+          &quot;tenantId&quot;: &quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;,
+          &quot;type&quot;: &quot;SystemAssigned&quot;
+        }
+</code></pre>
+<p>Then, run this command by using the name of your key vault and the value of <strong>PrincipalId</strong>:</p>
+<pre><code class="lang-azurecli">az keyvault set-policy --name '&lt;YourKeyVaultName&gt;' --object-id &lt;PrincipalId&gt; --secret-permissions get
+</code></pre>
+<div class="zone has-pivot" data-pivot="nodejs">
+<h2 id="deploy-the-node-app-to-azure-and-retrieve-the-secret-value">Deploy the Node App to Azure and retrieve the secret value</h2>
+<p>Now that everything is set. Run the following command to deploy the app to Azure</p>
+<pre><code class="lang-bash">git push azure master
+</code></pre>
+<p>After this when you browse https://&lt;app_name&gt;.azurewebsites.net you can see the secret value.
+Make sure that you replaced the name <yourkeyvaultname> with your vault name<p>
+</yourkeyvaultname></div>
+<div class="zone has-pivot" data-pivot="dotnet">
+<p>Now when you run the application, you should see your secret value retrieved.</p>
+</div>
+<h2 id="next-steps">Next steps</h2>
+<div class="zone has-pivot" data-pivot="nodejs">
+<ul>
+<li><a href="https://azure.microsoft.com/services/key-vault/">Azure Key Vault Home Page</a></li>
+<li><a href="https://docs.microsoft.com/azure/key-vault/">Azure Key Vault Documentation</a></li>
+<li><a href="https://docs.microsoft.com/javascript/api/overview/azure/key-vault">Azure SDK For Node</a></li>
+<li><a href="https://docs.microsoft.com/rest/api/keyvault/">Azure REST API Reference</a></li>
+</ul>
+</div>
+<div class="zone has-pivot" data-pivot="dotnet">
+<ul>
+<li><a href="https://azure.microsoft.com/services/key-vault/">Azure Key Vault home page</a></li>
+<li><a href="https://docs.microsoft.com/azure/key-vault/">Azure Key Vault documentation</a></li>
+<li><a href="https://github.com/Azure/azure-sdk-for-net">Azure SDK For .NET</a></li>
+<li><a href="https://docs.microsoft.com/rest/api/keyvault/">Azure REST API reference</a></li>
+</ul>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="theme-switch-field">
+                <p>Theme</p>
+                <select id="theme-switcher">
+                  <option value="dark">Dark
+                  <option value="gray">Gray
+                  <option value="light">Light
+                </select>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/LuzFaltex/docs/blob/master/docs/contribute/quick-create.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            LuzFaltex (c) 2014-2018
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/noelboss/featherlight/master/release/featherlight.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../styles/plugin-featherlight.js"></script>
+    <script type="text/javascript" src="../styles/styleswitcher.js"></script>
+    <script type="text/javascript" src="https://malsup.github.io/jquery.corner.js"></script>
+    <script type="text/javascript" src="../styles/cornerify.js"></script>  </body>
+</html>
