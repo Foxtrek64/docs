@@ -1,0 +1,4 @@
+["warning","unknown-field","Could not find member 'build' on object of type 'Config'.","docfx.yml","build"]
+["warning","unknown-field","Could not find member 'dest' on object of type 'Config'.","docfx.yml","dest"]
+["warning","unknown-field","Could not find member 'markdownEngineName' on object of type 'Config'.","docfx.yml","markdownEngineName"]
+["warning","unknown-field","Could not find member 'template' on object of type 'Config'.","docfx.yml","template"]
