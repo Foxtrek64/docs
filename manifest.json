@@ -14,18 +14,6 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/index.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/index.html",
-          "hash": "NoKlBGJVoxJ5suUCnmUFlg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
       "source_relative_path": "articles/intro.md",
       "output": {
         ".html": {
@@ -150,7 +138,7 @@
       "output": {
         ".html": {
           "relative_path": "contribute/how-to-write-workflows-major.html",
-          "hash": "SPT0W1yx8OmoZtgqQiMBaQ=="
+          "hash": "PYbBtPCRiJynYgds8tCS3w=="
         }
       },
       "is_incremental": false,
@@ -198,7 +186,7 @@
       "output": {
         ".html": {
           "relative_path": "contribute/index.html",
-          "hash": "8l3q1L2sPN5GC+1SId7n/A=="
+          "hash": "1MJPpnsHTWHfeo3sVdqPqw=="
         }
       },
       "is_incremental": false,
@@ -503,7 +491,106 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "FQ6DDIuAEs/r0bdNQs2q7A=="
+          "hash": "+p/44o1QzxD2PV8ojKSVVw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "legal/code-of-conduct.md",
+      "output": {
+        ".html": {
+          "relative_path": "legal/code-of-conduct.html",
+          "hash": "00km6TXDshNsigtfepwr/w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "legal/overview.md",
+      "output": {
+        ".html": {
+          "relative_path": "legal/overview.html",
+          "hash": "YCWD6B4S/ltQmCpXLGgOOQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "legal/privacy-overview.md",
+      "output": {
+        ".html": {
+          "relative_path": "legal/privacy-overview.html",
+          "hash": "4rn2Tlb3b/gAtlc9eOJ17Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "legal/privacy-policy.md",
+      "output": {
+        ".html": {
+          "relative_path": "legal/privacy-policy.html",
+          "hash": "XelKVhnpNXBLoau/KARLrA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "legal/tacos-overview.md",
+      "output": {
+        ".html": {
+          "relative_path": "legal/tacos-overview.html",
+          "hash": "JF1NsbKPTuBM2YkoRrRKUw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "legal/tacos-policy.md",
+      "output": {
+        ".html": {
+          "relative_path": "legal/tacos-policy.html",
+          "hash": "BhM94YIPvDnfjMpdi+9SIA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "legal/toc.md",
+      "output": {
+        ".html": {
+          "relative_path": "legal/toc.html",
+          "hash": "aEli6f1adtEjNxU+D6JbmQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "legal/vulnerability-reporting.md",
+      "output": {
+        ".html": {
+          "relative_path": "legal/vulnerability-reporting.html",
+          "hash": "uPu+2ePP8cjgKYZJsnzQAA=="
         }
       },
       "is_incremental": false,
@@ -515,7 +602,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "/0AZbZ6E7iq4msIPEsTnmA=="
+          "hash": "ikLiA2KoVnwmLPzWzYBJCQ=="
         }
       },
       "is_incremental": false,
