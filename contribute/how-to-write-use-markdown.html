@@ -1,0 +1,566 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>How to use Markdown for writing Docs | LuzFaltex Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="How to use Markdown for writing Docs | LuzFaltex Documentation ">
+    <meta name="generator" content="docfx 2.40.0.0">
+    
+    <link rel="preload" href="../styles/search-worker.js" as="script">
+    <link rel="preload" href="../fonts/glyphicons-halflings-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.minify.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/master.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/theme-switcher.css">
+    <link href="https://cdn.rawgit.com/noelboss/featherlight/1.7.6/release/featherlight.min.css" type="text/css" rel="stylesheet">
+    <meta name="theme-color" content="#99AAB5">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    <meta id="docfx-style:rel" content="../">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="how-to-use-markdown-for-writing-docs">How to use Markdown for writing Docs</h1>
+
+<p>Docs.luzfaltex.com articles are written in a lightweight markup language called <a href="https://daringfireball.net/projects/markdown/">Markdown</a>, which is both easy to read and easy to learn. Because of this, it has quickly become an industry standard.</p>
+<p>Because Docs content is stored in GitHub, it can use a superset of Markdown called <a href="https://help.github.com/categories/writing-on-github/">GitHub Flavored Markdown (GFM)</a>, which provides additional functionality for common formatting needs. Additionally, Open Publishing Services (OPS) implements Markdig Markdown Parser. Markdig is highly compatible with GitHub Flavored Markdown (GFM), adding functionality to enable Docs-specific features.</p>
+<ul>
+<li>Markdig is a fast, powerful, CommonMark compliant, extensible Markdown processor for .NET.</li>
+<li><a href="https://github.com/lunet-io/markdig">https://github.com/lunet-io/markdig</a></li>
+<li>Better community support</li>
+<li>Better standards support</li>
+</ul>
+<h2 id="markdown-basics">Markdown basics</h2>
+<h3 id="headings">Headings</h3>
+<p>To create a heading, you use a hash mark (#), as follows:</p>
+<pre><code class="lang-markdown">    # This is heading 1
+    ## This is heading 2
+    ### This is heading 3
+    #### This is heading 4
+</code></pre>
+<h3 id="bold-and-italic-text">Bold and italic text</h3>
+<p>To format text as <strong>bold</strong>, you enclose it in two asterisks:</p>
+<pre><code class="lang-markdown">    This text is **bold**.
+</code></pre>
+<p>To format text as <em>italic</em>, you enclose it in a single asterisk:</p>
+<pre><code class="lang-markdown">    This text is *italic*.
+</code></pre>
+<p>To format text as both <em><strong>bold and italic</strong></em>, you enclose it in three asterisks:</p>
+<pre><code class="lang-markdown">    This is text is both ***bold and italic***.
+</code></pre>
+<h3 id="lists">Lists</h3>
+<h4 id="unordered-list">Unordered list</h4>
+<p>To format an unordered/bulleted list, you can use either asterisks or dashes. For example, the following Markdown:</p>
+<pre><code class="lang-markdown">- List item 1
+- List item 2
+- List item 3
+</code></pre>
+<p>will be rendered as:</p>
+<ul>
+<li>List item 1</li>
+<li>List item 2</li>
+<li>List item 3</li>
+</ul>
+<p>To nest a list within another list, indent the child list items. For example, the following Markdown:</p>
+<pre><code class="lang-markdown">- List item 1
+  - List item A
+  - List item B
+- List item 2
+</code></pre>
+<p>will be rendered as:</p>
+<ul>
+<li>List item 1
+<ul>
+<li>List item A</li>
+<li>List item B</li>
+</ul>
+</li>
+<li>List item 2</li>
+</ul>
+<h4 id="ordered-list">Ordered list</h4>
+<p>To format an ordered/stepwise list, you use corresponding numbers. For example, the following Markdown:</p>
+<pre><code class="lang-markdown">1. First instruction
+2. Second instruction
+3. Third instruction
+</code></pre>
+<p>will be rendered as:</p>
+<ol>
+<li>First instruction</li>
+<li>Second instruction</li>
+<li>Third instruction</li>
+</ol>
+<p>To nest a list within another list, indent the child list items. For example, the following Markdown:</p>
+<pre><code class="lang-markdown">1. First instruction
+    1. Sub-instruction
+    2. Sub-instruction
+2. Second instruction
+</code></pre>
+<p>will be rendered as:</p>
+<ol>
+<li>First instruction
+<ol>
+<li>Sub-instruction</li>
+<li>Sub-instruction</li>
+</ol>
+</li>
+<li>Second instruction</li>
+</ol>
+<h3 id="tables">Tables</h3>
+<p>Tables are not part of the core Markdown specification, but GFM supports them. You can create tables by using the pipe (|) and hyphen (-) characters. Hyphens create each column's header, while pipes separate each column. Include a blank line before your table so it's rendered correctly.</p>
+<p>For example, the following Markdown:</p>
+<pre><code class="lang-markdown">| Fun                  | With                 | Tables          |
+| :------------------- | -------------------: |:---------------:|
+| left-aligned column  | right-aligned column | centered column |
+| $100                 | $100                 | $100            |
+| $10                  | $10                  | $10             |
+| $1                   | $1                   | $1              |
+</code></pre>
+<p>will be rendered as:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Fun</th>
+<th style="text-align: right;">With</th>
+<th style="text-align: center;">Tables</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">left-aligned column</td>
+<td style="text-align: right;">right-aligned column</td>
+<td style="text-align: center;">centered column</td>
+</tr>
+<tr>
+<td style="text-align: left;">$100</td>
+<td style="text-align: right;">$100</td>
+<td style="text-align: center;">$100</td>
+</tr>
+<tr>
+<td style="text-align: left;">$10</td>
+<td style="text-align: right;">$10</td>
+<td style="text-align: center;">$10</td>
+</tr>
+<tr>
+<td style="text-align: left;">$1</td>
+<td style="text-align: right;">$1</td>
+<td style="text-align: center;">$1</td>
+</tr>
+</tbody>
+</table>
+<p>For more information on creating tables, see:</p>
+<ul>
+<li>The Markdig <a href="#table-wrapping">table wrapping feature</a>, which can help with formatting of wide tables</li>
+<li>GitHub's <a href="https://help.github.com/articles/organizing-information-with-tables/">Organizing information with tables</a></li>
+<li>The <a href="https://www.tablesgenerator.com/markdown_tables">Markdown Tables Generator</a> web app</li>
+<li><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#wiki-tables">Adam Pritchard's Markdown Cheatsheet</a></li>
+<li><a href="https://michelf.ca/projects/php-markdown/extra/#table">Michel Fortin's Markdown Extra</a></li>
+<li><a href="https://jmalarcon.github.io/markdowntables/">Convert HTML tables to Markdown</a></li>
+</ul>
+<h3 id="links">Links</h3>
+<p>The Markdown syntax for an inline link consists of the <code>[link text]</code> portion, which is the text that will be hyperlinked, followed by the <code>(file-name.md)</code> portion, which is the URL or file name that's being linked to:</p>
+<p><code>[link text](file-name.md)</code></p>
+<p>For more information on linking, see:</p>
+<ul>
+<li>The <a href="https://daringfireball.net/projects/markdown/syntax#link">Markdown syntax guide</a> for details on Markdown's base linking support.</li>
+<li>The <a href="how-to-write-links.html">Links</a> section of this guide for details on additional linking syntax that Markdig provides.</li>
+</ul>
+<h3 id="code-snippets">Code snippets</h3>
+<p>Markdown supports the placement of code snippets both inline in a sentence and as a separate &quot;fenced&quot; block between sentences. For details, see:</p>
+<ul>
+<li><a href="https://daringfireball.net/projects/markdown/syntax#precode">Markdown's native support for code blocks</a></li>
+<li><a href="https://help.github.com/articles/creating-and-highlighting-code-blocks/">GFM support for code fencing and syntax highlighting</a></li>
+</ul>
+<p>Fenced code blocks are an easy way to enable syntax highlighting for your code snippets. The general format for fenced code blocks is:</p>
+<pre><code>```alias
+...
+your code goes in here
+...
+```
+</code></pre>
+<p>The alias after the initial three backtick (`) characters defines the syntax highlighting to be used. The following is a list of commonly used programming languages in Docs content and the matching label:</p>
+<p>These languages have friendly name support and most have language highlighting.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Markdown Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.NET Console</td>
+<td>dotnetcli</td>
+</tr>
+<tr>
+<td>ASP.NET (C#)</td>
+<td>aspx-csharp</td>
+</tr>
+<tr>
+<td>ASP.NET (VB)</td>
+<td>aspx-vb</td>
+</tr>
+<tr>
+<td>AzCopy</td>
+<td>azcopy</td>
+</tr>
+<tr>
+<td>Azure CLI</td>
+<td>azurecli</td>
+</tr>
+<tr>
+<td>Azure PowerShell</td>
+<td>azurepowershell</td>
+</tr>
+<tr>
+<td>C++</td>
+<td>cpp</td>
+</tr>
+<tr>
+<td>C++/CX</td>
+<td>cppcx</td>
+</tr>
+<tr>
+<td>C++/WinRT</td>
+<td>cppwinrt</td>
+</tr>
+<tr>
+<td>C#</td>
+<td>csharp</td>
+</tr>
+<tr>
+<td>CSHTML</td>
+<td>cshtml</td>
+</tr>
+<tr>
+<td>DAX</td>
+<td>dax</td>
+</tr>
+<tr>
+<td>F#</td>
+<td>fsharp</td>
+</tr>
+<tr>
+<td>Go</td>
+<td>go</td>
+</tr>
+<tr>
+<td>HTML</td>
+<td>html</td>
+</tr>
+<tr>
+<td>HTTP</td>
+<td>http</td>
+</tr>
+<tr>
+<td>Java</td>
+<td>java</td>
+</tr>
+<tr>
+<td>JavaScript</td>
+<td>javascript</td>
+</tr>
+<tr>
+<td>JSON</td>
+<td>json</td>
+</tr>
+<tr>
+<td>Markdown</td>
+<td>md</td>
+</tr>
+<tr>
+<td>NodeJS</td>
+<td>nodejs</td>
+</tr>
+<tr>
+<td>Objective-C</td>
+<td>objc</td>
+</tr>
+<tr>
+<td>OData</td>
+<td>odata</td>
+</tr>
+<tr>
+<td>PHP</td>
+<td>php</td>
+</tr>
+<tr>
+<td>Power Apps Formula</td>
+<td>powerappsfl</td>
+</tr>
+<tr>
+<td>PowerShell</td>
+<td>powershell</td>
+</tr>
+<tr>
+<td>Python</td>
+<td>python</td>
+</tr>
+<tr>
+<td>Q#</td>
+<td>qsharp</td>
+</tr>
+<tr>
+<td>Ruby</td>
+<td>ruby</td>
+</tr>
+<tr>
+<td>SQL</td>
+<td>sql</td>
+</tr>
+<tr>
+<td>Swift</td>
+<td>swift</td>
+</tr>
+<tr>
+<td>TypeScript</td>
+<td>typescript</td>
+</tr>
+<tr>
+<td>VB</td>
+<td>vb</td>
+</tr>
+<tr>
+<td>VSTS CLI</td>
+<td>vstscli</td>
+</tr>
+<tr>
+<td>XAML</td>
+<td>xaml</td>
+</tr>
+<tr>
+<td>XML</td>
+<td>xml</td>
+</tr>
+</tbody>
+</table>
+<h4 id="example-c">Example: C#</h4>
+<p><strong>Markdown</strong></p>
+<pre><code>```csharp
+// Hello1.cs
+public class Hello1
+{
+    public static void Main()
+    {
+        System.Console.WriteLine(&quot;Hello, World!&quot;);
+    }
+}
+```
+</code></pre>
+<p><strong>Render</strong></p>
+<pre><code class="lang-csharp">// Hello1.cs
+public class Hello1
+{
+    public static void Main()
+    {
+        System.Console.WriteLine(&quot;Hello, World!&quot;);
+    }
+}
+</code></pre>
+<h4 id="example-sql">Example: SQL</h4>
+<p><strong>Markdown</strong></p>
+<pre><code>```sql
+CREATE TABLE T1 (
+  c1 int PRIMARY KEY,
+  c2 varchar(50) SPARSE NULL
+);
+```
+</code></pre>
+<p><strong>Render</strong></p>
+<pre><code class="lang-sql">CREATE TABLE T1 (
+  c1 int PRIMARY KEY,
+  c2 varchar(50) SPARSE NULL
+);
+</code></pre>
+<h2 id="ops-custom-markdown-extensions">OPS custom Markdown extensions</h2>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Open Publishing Services (OPS) implements a Markdig Parser for Markdown, which is highly compatible with GitHub Flavored Markdown (GFM). Markdig adds some functionality through Markdown extensions. As such, selected articles from the full OPS Authoring Guide are included in this guide for reference. (For example, see &quot;Markdig and Markdown extensions&quot; and &quot;Code snippets&quot; in the table of contents.)</p>
+</div>
+<p>Docs articles use GFM for most article formatting, such as paragraphs, links, lists, and headings. For richer formatting, articles can use Markdig features such as:</p>
+<ul>
+<li>Note blocks</li>
+<li>Includes</li>
+<li>Selectors</li>
+<li>Embedded videos</li>
+<li>Code snippets/samples</li>
+</ul>
+<p>For the complete list, refer to &quot;Markdig and Markdown extensions&quot; and &quot;Code snippets&quot; in the table of contents.</p>
+<h3 id="note-blocks">Note blocks</h3>
+<p>You can choose from four types of note blocks to draw attention to specific content:</p>
+<ul>
+<li>NOTE</li>
+<li>WARNING</li>
+<li>TIP</li>
+<li>IMPORTANT</li>
+</ul>
+<p>In general, note blocks should be used sparingly because they can be disruptive. Although they also support code blocks, images, lists, and links, try to keep your note blocks simple and straightforward.</p>
+<h3 id="includes">Includes</h3>
+<p>When you have reusable text or image files that need to be included in article files, you can use a reference to the &quot;include&quot; file via the Markdig file include feature. This feature instructs OPS to include the file in your article file at build time, making it part of your published article. Three types of includes are available to help you reuse content:</p>
+<ul>
+<li>Inline: Reuse a common text snippet inline with within another sentence.</li>
+<li>Block: Reuse an entire Markdown file as a block, nested within a section of an article.</li>
+<li>Image: This is how standard image inclusion is implemented in Docs.</li>
+</ul>
+<p>An inline or block include is just a simple Markdown (.md) file. It can contain any valid Markdown. All include Markdown files should be placed in a <a href="git-github-fundamentals.html#includes-subdirectory">common <code>/includes</code> subdirectory</a>, in the root of the repository. When the article is published, the included file is seamlessly integrated into it.</p>
+<p>Here are requirements and considerations for includes:</p>
+<ul>
+<li>Use includes whenever you need the same text to appear in multiple articles.</li>
+<li>Use block includes for significant amounts of content--a paragraph or two, a shared procedure, or a shared section. Do not use them for anything smaller than a sentence.</li>
+<li>Includes won't be rendered in the GitHub rendered view of your article, because they rely on Markdig extensions. They'll be rendered only after publication.</li>
+<li>Ensure that all the text in an include is written in complete sentences or phrases that do not depend on preceding text or following text in the article that references the include. Ignoring this guidance creates an untranslatable string in the article that breaks the localized experience.</li>
+<li>Don't embed includes within other includes. They are not supported.</li>
+<li>Place media files in a media folder that's specific to the include subdirectory--for instance, the <code>&lt;repo&gt;</code>/includes/media folder. The media directory should not contain any images in its root. If the include does not have images, a corresponding media directory is not required.</li>
+<li>As with regular articles, don't share media between include files. Use a separate file with a unique name for each include and article. Store the media file in the media folder that's associated with the include.</li>
+<li>Don't use an include as the only content of an article.  Includes are meant to be supplemental to the content in the rest of the article.</li>
+</ul>
+<h3 id="selectors">Selectors</h3>
+<p>Use selectors in technical articles when you author multiple flavors of the same article, to address differences in implementation across technologies or platforms. This is typically most applicable to our mobile platform content for developers. There are currently two different types of selectors in Markdig, a single selector and a multi-selector.</p>
+<p>Because the same selector Markdown goes in each article in the selection, we recommend placing the selector for your article in an include. Then you can reference that include in all your articles that use the same selector.</p>
+<h3 id="code-snippets-1">Code snippets</h3>
+<p>Markdig supports advanced inclusion of code in an article, via its code snippet extension. It provides advanced rendering that builds on GFM features such as programming language selection and syntax coloring, plus nice features such as:</p>
+<ul>
+<li>Inclusion of centralized code samples/snippets from an external repository.</li>
+<li>Tabbed UI to show multiple versions of code samples in different languages.</li>
+</ul>
+<h2 id="gotchas-and-troubleshooting">Gotchas and troubleshooting</h2>
+<h3 id="alt-text">Alt text</h3>
+<p>Alt text that contains underscores won't be rendered properly. For example, instead of using this:</p>
+<pre><code class="lang-markdown">![ADextension_2FA_Configure_Step4] (./media/bogusfilename/ADextension_2FA_Configure_Step4.PNG)
+</code></pre>
+<p>Escape the underscores like this:</p>
+<pre><code class="lang-markdown">![ADextension\_2FA\_Configure\_Step4] (./media/bogusfilename/ADextension_2FA_Configure_Step4.PNG)
+</code></pre>
+<h3 id="apostrophes-and-quotation-marks">Apostrophes and quotation marks</h3>
+<p>If you copy from Word into a Markdown editor, the text might contain &quot;smart&quot; (curly) apostrophes or quotation marks. These need to be encoded or changed to basic apostrophes or quotation marks. Otherwise, you end up with things like this when the file is published: Itâ€™s</p>
+<p>Here are the encodings for the &quot;smart&quot; versions of these punctuation marks:</p>
+<ul>
+<li>Left (opening) quotation mark: <code>&amp;#8220;</code></li>
+<li>Right (closing) quotation mark: <code>&amp;#8221;</code></li>
+<li>Right (closing) single quotation mark or apostrophe: <code>&amp;#8217;</code></li>
+<li>Left (opening) single quotation mark (rarely used): <code>&amp;#8216;</code></li>
+</ul>
+<h3 id="angle-brackets">Angle brackets</h3>
+<p>If you use angle brackets in text (not code) in your file--for example, to denote a placeholder--you need to manually encode the angle brackets. Otherwise, Markdown thinks that they're intended to be an HTML tag.</p>
+<p>For example, encode <code>&lt;script name&gt;</code> as <code>&amp;lt;script name&amp;gt;</code></p>
+<h2 id="see-also">See also</h2>
+<h3 id="markdown-resources">Markdown resources</h3>
+<ul>
+<li><a href="https://daringfireball.net/projects/markdown/syntax">Introduction to Markdown</a></li>
+<li><a href="media/documents/markdown-cheatsheet.pdf?raw=true">Docs Markdown cheat sheet</a></li>
+<li><a href="https://help.github.com/articles/markdown-basics/">GitHub's Markdown Basics</a></li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="theme-switch-field">
+                <p>Theme</p>
+                <select id="theme-switcher">
+                  <option value="dark">Dark
+                  <option value="gray">Gray
+                  <option value="light">Light
+                </select>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/LuzFaltex/docs/blob/master/docs/contribute/how-to-write-use-markdown.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Portions of this page are (c) LuzFaltex 2014-2018 // Powered by <a href="https://github.com/dotnet/docfx">DocFX</a>
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/noelboss/featherlight/master/release/featherlight.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../styles/plugin-featherlight.js"></script>
+    <script type="text/javascript" src="../styles/styleswitcher.js"></script>
+    <script type="text/javascript" src="https://malsup.github.io/jquery.corner.js"></script>
+    <script type="text/javascript" src="../styles/cornerify.js"></script>  </body>
+</html>

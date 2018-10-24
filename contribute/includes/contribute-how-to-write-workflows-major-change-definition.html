@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Docs PR validation service | LuzFaltex Documentation </title>
+    <title> | LuzFaltex Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Docs PR validation service | LuzFaltex Documentation ">
+    <meta name="title" content=" | LuzFaltex Documentation ">
     <meta name="generator" content="docfx 2.40.0.0">
     
     <link rel="preload" href="../../styles/search-worker.js" as="script">
@@ -21,7 +21,7 @@
     <link href="https://cdn.rawgit.com/noelboss/featherlight/1.7.6/release/featherlight.min.css" type="text/css" rel="stylesheet">
     <meta name="theme-color" content="#99AAB5">
     <meta property="docfx:navrel" content="../../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
     <meta id="docfx-style:rel" content="../../">
     
     <meta property="docfx:rel" content="../../">
@@ -84,24 +84,14 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="docs-pr-validation-service">Docs PR validation service</h1>
 
-<p>The Docs PR validation service is a GitHub app that runs validation rules on the files in a PR.</p>
-<p>When the validation service is enabled on a repo, you'll see the following behavior:</p>
-<ol>
-<li><p>You submit a PR.</p>
-</li>
-<li><p>In the GitHub comment that indicates the status of your PR, you'll see the status of &quot;checks&quot; enabled on the repo. Note that in this example, there are two checks enabled, &quot;Commit Validation&quot; and &quot;OpenPublishing.Build&quot;:</p>
-<p><img src="media/validation-failed.png" alt="some checks failed"></p>
-<p>Build can pass even if commit validation fails.</p>
-</li>
-<li><p>Click <strong>Details</strong> for more information.</p>
-</li>
-<li><p>On the Details page, you'll see all the validation checks that failed, with information about how to fix the issues:</p>
-<p><img src="media/validation-details.png" alt="validation message"></p>
-</li>
-</ol>
-<p>See the left-hand TOC of this article for the list of validations currently in the service.</p>
+<ul>
+<li><strong>Making a large contribution</strong>. For instance, you might make contributions (additions, changes, or deletions) that span multiple articles and need to be committed and tested as one unit of work in a single pull request.</li>
+<li><strong>Creating and publishing a new article</strong>, which typically requires a more robust local editor.</li>
+<li><strong>Adding new images or updating images</strong>, which typically requires simultaneous creation of a new <code>media</code> subdirectory, image files, updates to image links in articles, and previewing markdown files in a local editor to test image rendering.</li>
+<li><strong>Updating an article over a period of days before you publish</strong>. In these cases, you typically need to do regular integration of other changes that occur in the master branch. This integration is easier via Git Bash and local editing. You also run the risk of losing your edits if you do this via the GitHub UI and wait before you commit the changes.</li>
+<li><strong>Making continual updates to the same article after a pull request has been opened</strong> (unless you are comfortable doing this via the GitHub UI). Using the GitHub UI has the potential to create multiple outstanding pull requests for the same file, which may conflict with one another.</li>
+</ul>
 </article>
           </div>
           
@@ -118,7 +108,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/LuzFaltex/docs/blob/master/docs/contribute/validation-reference/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/LuzFaltex/docs/blob/master/docs/contribute/includes/contribute-how-to-write-workflows-major-change-definition.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
