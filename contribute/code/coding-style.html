@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title> | LuzFaltex Documentation </title>
+    <title>C# Coding Style | LuzFaltex Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content=" | LuzFaltex Documentation ">
+    <meta name="title" content="C# Coding Style | LuzFaltex Documentation ">
     <meta name="generator" content="docfx 2.40.6.0">
     
     <link rel="preload" href="../../styles/search-worker.js" as="script">
@@ -84,14 +84,87 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
+<h1 id="c-coding-style">C# Coding Style</h1>
 
-<ul>
-<li><strong>Making a large contribution</strong>. For instance, you might make contributions (additions, changes, or deletions) that span multiple articles and need to be committed and tested as one unit of work in a single pull request.</li>
-<li><strong>Creating and publishing a new article</strong>, which typically requires a more robust local editor.</li>
-<li><strong>Adding new images or updating images</strong>, which typically requires simultaneous creation of a new <code>media</code> subdirectory, image files, updates to image links in articles, and previewing markdown files in a local editor to test image rendering.</li>
-<li><strong>Updating an article over a period of days before you publish</strong>. In these cases, you typically need to do regular integration of other changes that occur in the master branch. This integration is easier via Git Bash and local editing. You also run the risk of losing your edits if you do this via the GitHub UI and wait before you commit the changes.</li>
-<li><strong>Making continual updates to the same article after a pull request has been opened</strong> (unless you are comfortable doing this via the GitHub UI). Using the GitHub UI has the potential to create multiple outstanding pull requests for the same file, which may conflict with one another.</li>
-</ul>
+<p>The general rule we follow is &quot;use Visual Studio defaults&quot;.</p>
+<ol>
+<li>We use <a href="http://en.wikipedia.org/wiki/Indent_style#Allman_style">Allman style</a> braces, where each brace begins on a new line. A single line statement block can go without braces, but the block must be properly indented on its own line and must not be nested in other statement blocks that use braces. One exception is that a <code>using</code> statement is permitted to be nested within another <code>using</code> statement by starting on the following line at the same indentation level, even if the nested <code>using</code> statement contains a controlled block.</li>
+<li>We use four spaces of indentation (no tabs).</li>
+<li>we use <code>_camelCase</code> for internal and private fields and use <code>readonly</code> wherever possible. Prefix internal and private instance fields with <code>_</code>, static fields with <code>s_</code>, and thread static fields with <code>t_</code>. When used on static fields, <code>readonly</code> should come after <code>static</code> (i.e. <code>static readonly</code> not <code>readonly static</code>). Public fields should be used sparingly and should use PascalCasing with no prefix when used.</li>
+<li>We avoid <code>this.</code> unless absolutely necessary.</li>
+<li>We always specify the visibility, even if it's the default (e.g. <code>private string _foo</code>, not <code>string _foo</code>). Visibility should be the first modifier (i.e. <code>public abstract</code> not <code>abstract public</code>).</li>
+<li>Namespace imports should be specified at the top of the file, <em>outside</em> of <code>namespace</code> declarations, and should be sorted alphabetically, with the exception of <code>System.*</code> namespaces, which are to be placed on top of all others.</li>
+<li>Avoid more than one empty line at a time. For example, do not have two blank lines between members of a type.</li>
+<li>Avoid spurious free spaces. For example, avoid <code>if (someVar == 0)...</code> where the dots mark the spurious free spaces. Consider enabling &quot;View White Space (<code>ctrl</code>+<code>E</code>, <code>S</code>)&quot; if using Visual Studio to aid detection.</li>
+<li>If a file happens to differ in style from these guidelines (e.g. private members are named <code>m_member</code> rather than <code>_member</code>), the existing style in that file takes precedence.</li>
+<li>We only use <code>var</code> when it's obvious what the variable type is (e.g. <code>var stream = new FileStream(...)</code> not <code>var stream = OpenStandardOutput()</code>).</li>
+<li>We use language keywords instead of BCL types (i.e. <code>int, string, float</code> instead of <code>Int32, String, Single</code>, etc.) for both type references as well as method calls (<code>int.Parse</code> instead of <code>Int32.Parse</code>).</li>
+<li>We use PascalCasing to name all of our constant local variables and fields. The only exception is for interop code where the constant value should exactly match the name and value of the code you are calling via interop.</li>
+<li>We use <code>nameof(...)</code> instead of <code>&quot;...&quot;</code> wherever possible and relevant.</li>
+<li>Fields should be specified at the top within type declarations.</li>
+<li>When including non-ASCII characters in the source code, use Unicode escape sequences (<code>\uXXXX</code>) instead of literal characters. Literal non-ASCII characters occasionally get garbled by a tool or editor.</li>
+<li>When using labels (for goto), indent the label one less than the current indentation.</li>
+</ol>
+<p>Example file:</p>
+<p><code>ObservableLinkedList`1.cs:</code></p>
+<pre><code class="lang-c#">using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.ComponentModel;
+using System.Diagnostics;
+using Microsoft.Win32;
+
+namespace System.Collections.Generic
+{
+    public partial class ObservableLinkedList&lt;T&gt; : INotifyCollectionChanged, INotifyPropertyChanged
+    {
+        private ObservableLinkedListNode&lt;T&gt; _head;
+        private int _count;
+
+        public ObservableLinkedList(IEnumerable&lt;T&gt; items)
+        {
+            if (items == null)
+                throw new ArgumentNullException(nameof(items));
+
+            foreach (T item in items)
+            {
+                AddLast(item);
+            }
+        }
+
+        public event NotifyCollectionChangedEventHandler CollectionChanged;
+
+        public int Count
+        {
+            get { return _count; }
+        }
+
+        public ObservableLinkedListNode AddLast(T value) 
+        {
+            var newNode = new LinkedListNode&lt;T&gt;(this, value);
+
+            InsertNodeBefore(_head, node);
+        }
+
+        protected virtual void OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+        {
+            NotifyCollectionChangedEventHandler handler = CollectionChanged;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        private void InsertNodeBefore(LinkedListNode&lt;T&gt; node, LinkedListNode&lt;T&gt; newNode)
+        {
+           ...
+        }
+
+        ...
+    }
+}
+</code></pre>
 </article>
           </div>
           
@@ -108,7 +181,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/LuzFaltex/docs/blob/master/docs/contribute/includes/contribute-how-to-write-workflows-major-change-definition.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/LuzFaltex/docs/blob/master/docs/contribute/code/coding-style.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

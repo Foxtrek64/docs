@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Docs PR validation service | LuzFaltex Documentation </title>
+    <title>Contribution Workflow | LuzFaltex Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Docs PR validation service | LuzFaltex Documentation ">
+    <meta name="title" content="Contribution Workflow | LuzFaltex Documentation ">
     <meta name="generator" content="docfx 2.40.6.0">
     
     <link rel="preload" href="../../styles/search-worker.js" as="script">
@@ -21,7 +21,7 @@
     <link href="https://cdn.rawgit.com/noelboss/featherlight/1.7.6/release/featherlight.min.css" type="text/css" rel="stylesheet">
     <meta name="theme-color" content="#99AAB5">
     <meta property="docfx:navrel" content="../../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
     <meta id="docfx-style:rel" content="../../">
     
     <meta property="docfx:rel" content="../../">
@@ -84,24 +84,56 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="docs-pr-validation-service">Docs PR validation service</h1>
+<h1 id="contribution-workflow">Contribution Workflow</h1>
 
-<p>The Docs PR validation service is a GitHub app that runs validation rules on the files in a PR.</p>
-<p>When the validation service is enabled on a repo, you'll see the following behavior:</p>
+<p>You can contribute to LuzFaltex code with issues and PRs. Simply filing issues for problems you encounter is a great way to contribute. Contributing implementations is greatly appreciated.</p>
+<h2 id="suggested-workflow">Suggested Workflow</h2>
+<p>We use and recommend the following workflow:</p>
 <ol>
-<li><p>You submit a PR.</p>
+<li>Create an issue for your work.
+<ul>
+<li>You can skip this step for trivial changes</li>
+<li>Reuse an existing issue on the topic, if there is one.</li>
+<li>Use the project's <code>CODE_OWNERS.TXT</code> to find relevant maintainers and @ mention them to ask for feedback on your issue.</li>
+<li>Get agreement from the team and the community that your proposed change is a good one.</li>
+<li>If your change adds to a new API, follow the <a href="api-review.html">API Review Process</a>.</li>
+<li>Clearly state that you are going to take on implementing it, if that is the case. You can request that the issue be assigned to you. Note: The issue filer and implementer don't have to be the same person.</li>
+</ul>
 </li>
-<li><p>In the GitHub comment that indicates the status of your PR, you'll see the status of &quot;checks&quot; enabled on the repo. Note that in this example, there are two checks enabled, &quot;Commit Validation&quot; and &quot;OpenPublishing.Build&quot;:</p>
-<p><img src="media/validation-failed.png" alt="some checks failed"></p>
-<p>Build can pass even if commit validation fails.</p>
+<li>Create a personal fork of the repository (if you don't already have one.)</li>
+<li>Create a branch off of master (<code>git checkout -b mybranch</code>).
+<ul>
+<li>Name the branch so that it clearly communicates your intentions, such as issue-123 or username-issue</li>
+<li>Branches are useful since they isolate your changes from incoming changes upstream. They also enable you to create multiple PRs for the same fork.</li>
+</ul>
 </li>
-<li><p>Click <strong>Details</strong> for more information.</p>
+<li>Make and commit your changes.
+<ul>
+<li>Please follow our <a href="contributing.html#commit-messages">Commit Message</a> guidance.</li>
+</ul>
 </li>
-<li><p>On the Details page, you'll see all the validation checks that failed, with information about how to fix the issues:</p>
-<p><img src="media/validation-details.png" alt="validation message"></p>
+<li>Add new tests corresponding to your change, if applicable.</li>
+<li>Build the repository with your changes.
+<ul>
+<li>Make sure the builds are clean.</li>
+<li>Make sure that the tests are all passing, including your new tests.</li>
+</ul>
+</li>
+<li>Create a new pull request (PR) against the upstream repository's <strong>master</strong> branch.
+<ul>
+<li>Push your changes to your fork (if you haven't already)</li>
+</ul>
 </li>
 </ol>
-<p>See the left-hand TOC of this article for the list of validations currently in the service.</p>
+<p>Note: It's okay for your PR to include a large number of commits. Once your change is accepted, you will be asked to squash your commits into one or some appropriately small number of commits before your PR is merged.</p>
+<p>Note: It's OK to create your PR as &quot;[WIP]&quot; before the implementation is done. This can be useful if you'd like to start the feedback process concurrent with your implementation. State that this is the case in the initial PR comment.</p>
+<h2 id="pr---ci-process">PR - CI Process</h2>
+<p>The LuzFaltex Continuous Integration (CI) system will automatically perform the required builds and run tests (including the ones you are expected to run) for PRs. Builds and test runs must be clean.</p>
+<p>If the CI build fails for any reason, the PR issue will be updated with a link that can be used to determine the cause of the failure.</p>
+<h2 id="pr-feedback">PR Feedback</h2>
+<p>LuzFaltex Team and community members will provide feedback on your change. Community feedback is highly valued. You will often see the absence of team feedback if the community has already provided good review feedback.</p>
+<p>One or more LuzFaltex team members will review every PR prior to merge. They will often reply with &quot;LGTM.&quot; That meas that the PR will be merged once the feedback is resolved. &quot;LGTM&quot; == &quot;looks good to me.&quot;</p>
+<p>There are lots of thoughts and <a href="https://github.com/antlr/antlr4-cpp/blob/master/CONTRIBUTING.md#emoji">approaches</a> for how to efficiently discuss changes. It is best to be clear and explicit with your feedback. Please be patient with people who might not understand the finer details about your approach to feedback.</p>
 </article>
           </div>
           
@@ -118,7 +150,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/LuzFaltex/docs/blob/master/docs/contribute/validation-reference/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/LuzFaltex/docs/blob/master/docs/contribute/code/workflow.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Contributing to LuzFaltex Code | LuzFaltex Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Contributing to LuzFaltex Code | LuzFaltex Documentation ">
+    <meta name="generator" content="docfx 2.40.6.0">
+    
+    <link rel="preload" href="../../styles/search-worker.js" as="script">
+    <link rel="preload" href="../../fonts/glyphicons-halflings-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.minify.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/master.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/theme-switcher.css">
+    <link href="https://cdn.rawgit.com/noelboss/featherlight/1.7.6/release/featherlight.min.css" type="text/css" rel="stylesheet">
+    <meta name="theme-color" content="#99AAB5">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    <meta id="docfx-style:rel" content="../../">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="contributing-to-luzfaltex-code">Contributing to LuzFaltex Code</h1>
+
+<p>This document describes contribution guidelines for LuzFaltex Code repos available both here on GitHub and on <a href="https://code.luzfaltex.com">code.luzfaltex.com</a>. The LuzFaltex Code team maintains the following guidelines for contributing to the LuzFaltex Code repos. If you have any questions regarding a specific policy, please feel free to reach out to the code team through our Discord (link coming soon) or create an issue.</p>
+<p>General contribution guidance is included in this document. Additional guidance is defined in the documents linked below.</p>
+<ul>
+<li><a href="copyright.html">Copyright</a> describes the licensing practices for our projects.</li>
+<li><a href="workflow.html">Contribution Workflow</a> describes the workflow that the team uses for considering and accepting changes.</li>
+</ul>
+<h2 id="coding-style">Coding Style</h2>
+<p>We intend to develop code in full conformance with the style guidelines described in the <a href="coding-style.html">C# Coding Style</a>. However, sometimes older code may not follow the current style. Please refer to the notes below:</p>
+<ul>
+<li><strong>DO NOT</strong> send PRs for style changes. For example, do not send PRs that are focused on changing the usage of <code>Int32</code> to <code>int</code>.</li>
+<li><strong>DO NOT</strong> send PRs for upgrading code to use newer language features, though it's okay to use newer language features as part of new code that's written. For example, it's okay to use expression-bodied members as part of new code you write, but do not send a PR focused on changing existing properties or methods to use the feature.</li>
+<li><strong>DO</strong> give priority to the current style of the project or file you're changing <em>even</em> if it diverges from the general guidelines.</li>
+</ul>
+<p>In the event you find a document which contains code that does not conform to the Coding Style, please refer to the project's <code>CODE_OWNERS.TXT</code> to find the maintainer for the project and create an issue, tagging them in said issue and identifying the relevant code files.</p>
+<h2 id="api-changes">API Changes</h2>
+<ul>
+<li><strong>DO NOT</strong> submit PRs to change an API until the changes in the issues have been approved via the <a href="api-review.html">API Review Process</a>.</li>
+</ul>
+<h2 id="contribution-bar">Contribution &quot;Bar&quot;</h2>
+<p>Project maintainers will merge changes that improve the product significantly and broadly and that align with the Project Roadmap.</p>
+<p>Maintainers will not merge changes that have narrowly-defined benefits due to compatibility risk. The LuzFaltex codebase is used by several LuzFaltex projects to enable minimization of code and efficiency. Other companies may build on top of LuzFaltex code, whether developing extensions or customizations, or leveraging an open source base library.</p>
+<p>Contributions must also satisfy the other published guidelines defined in this document.</p>
+<h2 id="pull-requests">Pull Requests</h2>
+<ul>
+<li><strong>DO</strong> submit all code changes via pull requests (PRs) rather than through a direct commit. PRs will be reviewed and potentially merged by the repo maintainers after a peer review that includes at least one maintainer.</li>
+<li><strong>DO</strong> submit &quot;work in progress&quot; PRs. A work-in-progress PR should have <code>[WIP]</code> placed in the PR title before the title itself. This can be useful for grouping multiple issues into one.</li>
+<li><strong>DO</strong> give PRs short but descriptive names (e.g. &quot;Add LDAP authentication method to LuzFaltex.Authentication library&quot;, not &quot;Fix #1234&quot;).</li>
+<li><strong>DO</strong> refer to any relevant issues and include <a href="https://help.github.com/articles/closing-issues-via-commit-messages/">keywords</a> that automatically close issues when the PR is merged.</li>
+<li><strong>DO</strong> tag any users that should know about and/or review the change.</li>
+<li><strong>DO</strong> ensure each commit successfully builds. The entire PR must pass all tests in the Continuous Integration (CI) system before it'll be merged.</li>
+<li><strong>DO</strong> address PR feedback in an additional commit(s) rather than amending the existing commits, and only rebase/squash them when necessary. This makes it easier for reviewers to track changes.</li>
+<li><strong>DO</strong> assume that <a href="https://github.com/blog/2141-squash-your-commits">&quot;Squash and Merge&quot;</a> will be used to merge your commit unless you request otherwise in the PR.</li>
+<li><strong>DO NOT</strong> fix merge conflicts using a merge commit. Prefer <code>git rebase</code>.</li>
+<li><strong>DO NOT</strong> mix independent, unrelated changes in one PR. Separate real product/test code changes from large code formatting/dead code removal changes. Separate unrelated fixes into separate PRs, especially if they are in different assemblies.</li>
+</ul>
+<h2 id="merging-pull-requests-for-contributors-with-write-access">Merging Pull Requests (for contributors with write access)</h2>
+<ul>
+<li><p><strong>DO</strong> use <a href="https://github.com/blog/2141-squash-your-commits">&quot;Squash and Merge&quot;</a> by default for individual contributions unless requested by the PR author. Do so even if the PR only contains one commit. It creates a simpler history than &quot;Create a Merge Commit.&quot; Reasons that PR authors may request &quot;Merge and Commit&quot; may include (but are not limited to):</p>
+<ul>
+<li>The change is easier to understand as a series of focused commits. Each commit in the series must be buildable so as not to break <code>git bisect</code>.</li>
+<li>Contributor is using an email address other than the primary GitHub address and wants that preserved in the history. Contributor must be willing to squash the commits manually before acceptance.</li>
+</ul>
+</li>
+</ul>
+<h2 id="general-dos-and-donts">General DOs and DON'Ts</h2>
+<p>Please do:</p>
+<ul>
+<li><strong>DO</strong> follow our <a href="coding-style.html">Coding Style</a> (C# code-specific)</li>
+<li><strong>DO</strong> give priority to the current style of the project or file you're changing even if it diverges from the general guidelines.</li>
+<li><strong>DO</strong> include tests when adding new features. When fixing bugs, start with adding a test that highlights how the current behavior is broken.</li>
+<li><strong>DO</strong> keep the discussions focused. When a new or related topic comes up it's often better to create a new issue than to side track the discussion.
+<ul>
+<li><strong>DO</strong> Create a new issue for each major piece of a change (e.g. front-end UI changes, back-end UI changes, and underlying functionality) which you group together in the PR for the overall change.</li>
+</ul>
+</li>
+<li><strong>DO</strong> blog and tweet (or whatever) about your contributions frequently!</li>
+</ul>
+<p>Please do not:</p>
+<ul>
+<li><strong>DON'T</strong> make PRs for style changes</li>
+<li><strong>DON'T</strong> surprise us with big pull requests. Instead, file an issue and start a discussion so we can agree on a direction before you invest a large amount of time.</li>
+<li><strong>DON'T</strong> commit code that you didn't write. If you find code that you think is a good fit, file an issue and start a discussion before proceeding.</li>
+<li><strong>DON'T</strong> submit PRs that alter licensing related files or headers. If you believe there's a problem with them, file an issue and we'll be happy to discuss it.</li>
+<li><strong>DON'T</strong> add API additions without filing an issue and discussing it with us first. See the <a href="api-review.html">API Review Process</a>.</li>
+</ul>
+<h2 id="commit-messages">Commit Messages</h2>
+<p>Please format commit messages as follows (based on <a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">A Note About Git Commit Messages</a>)</p>
+<pre><code>Summarize change in 50 characters or less
+
+Provide more detail after the first line. Leave one blank line below the
+summary and wrap all lines at 72 characters or less.
+
+If the change fixes an issue, leave another blank line after the final
+paragraph and indicate which issue is fixed in the specified format
+below.
+
+Fix #42
+</code></pre>
+<p>Also do your best to factor commits appropriately: not too large with unrelated things in the same commit, and not too small with the same change applied N times in N different commits.</p>
+<h2 id="contributor-license-agreement">Contributor License Agreement</h2>
+<p>You must sign a <a href="http://en.wikipedia.org/wiki/Contributor_License_Agreement">Contributor License Agreement</a> before your PR will be merged. This is a one-time requirement for our projects.</p>
+<p>The Agreement: <a href="https://github.com/LuzFaltex/docs/tree/master/docs/legal/contribution-license-agreement-distributable.pdf">LuzFaltex Contributor License Agreement</a></p>
+<p>You don't have to do this up front. You can simply clone, fork, and submit your pull-request as usual. When your pull-request is created, it is classified by a CLA bot. If the change is trivial (for example, you just fixed a typo), then the PR is labeled with <code>cla-not-required</code>. Otherwise it is classified as <code>cla-required</code>. Once you signed a CLA, the current and all future pull requests will be labelled as <code>cla-signed</code>.</p>
+<h2 id="file-headers">File Headers</h2>
+<p>The following file header is used for all LuzFaltex open source projects. Please use it for new files</p>
+<pre><code class="lang-cs">// Licensed to LuzFaltex under one or more agreements.
+// LuzFaltex licenses this file to you under the MIT license.
+// See the LICENSE file in the project root for more information.
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="theme-switch-field">
+                <p>Theme</p>
+                <select id="theme-switcher">
+                  <option value="dark">Dark
+                  <option value="gray">Gray
+                  <option value="light">Light
+                </select>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/LuzFaltex/docs/blob/master/docs/contribute/code/contributing.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Portions of this page are (c) LuzFaltex 2014-2018 // Powered by <a href="https://github.com/dotnet/docfx">DocFX</a>
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/noelboss/featherlight/master/release/featherlight.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../../styles/plugin-featherlight.js"></script>
+    <script type="text/javascript" src="../../styles/styleswitcher.js"></script>
+    <script type="text/javascript" src="https://malsup.github.io/jquery.corner.js"></script>
+    <script type="text/javascript" src="../../styles/cornerify.js"></script>  </body>
+</html>

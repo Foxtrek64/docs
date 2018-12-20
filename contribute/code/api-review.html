@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Docs PR validation service | LuzFaltex Documentation </title>
+    <title>API Review Process | LuzFaltex Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Docs PR validation service | LuzFaltex Documentation ">
+    <meta name="title" content="API Review Process | LuzFaltex Documentation ">
     <meta name="generator" content="docfx 2.40.6.0">
     
     <link rel="preload" href="../../styles/search-worker.js" as="script">
@@ -21,7 +21,7 @@
     <link href="https://cdn.rawgit.com/noelboss/featherlight/1.7.6/release/featherlight.min.css" type="text/css" rel="stylesheet">
     <meta name="theme-color" content="#99AAB5">
     <meta property="docfx:navrel" content="../../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
     <meta id="docfx-style:rel" content="../../">
     
     <meta property="docfx:rel" content="../../">
@@ -84,24 +84,37 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="docs-pr-validation-service">Docs PR validation service</h1>
+<h1 id="api-review-process">API Review Process</h1>
 
-<p>The Docs PR validation service is a GitHub app that runs validation rules on the files in a PR.</p>
-<p>When the validation service is enabled on a repo, you'll see the following behavior:</p>
+<p>The LuzFaltex Core framework takes API usability extremely seriously. Thus, we generally review every single API that is added to the product. This page discusses how we conduct design reviews for components that are open sourced.</p>
+<h2 id="which-apis-should-be-reviewed">Which APIs should be reviewed?</h2>
+<p>The rule of thumb is that we review every API that is being to the <code>LuzFaltex.*</code> namespaces.</p>
+<h2 id="steps">Steps</h2>
 <ol>
-<li><p>You submit a PR.</p>
+<li><strong>Requester files an issue</strong>. The issue description should contain a speclet that represents a sketch of the new APIs, including samples on how the APIs are being used. The goal isn't to get a complete API list, but a good example on how the new APIs would roughly look like and in what scenarios they would be used. Here is a <a href="https://github.com/dotnet/corefx/issues/271">good example</a>.</li>
+<li><strong>We assign an owner</strong>. We'll assign a dedicated owner from our side that sponsors the issue. This is usually the <a href="issue-guide.html#areas">area owner</a> for which the API proposal or design change was filed for.</li>
+<li><strong>Discussion</strong>. The goal of the discussion is to help the assignee make a decision whether we want to pursue the proposal or not. In this phase, the goal isn't necessarily to perform an in-depth review; rather, we want to make sure that the proposal is actionable, i.e. has a concrete design, a sketch of the APIs, and some code samples that show how it should be used. If changes are necessary, the requester is encouraged to edit the issue description. This allows folks joining later to understand the most recent proposal. To avoid confusion, the requester should maintain a tiny change log, like a bolded &quot;Updates:&quot; followed by a bullet point list of the updates that were being made.</li>
+<li>*<em>Owner makes decision</em>. When the owner believes enough information is available to make a decision, they will update the issue accordingly:
+<ul>
+<li><strong>Mark for review</strong>. If the owner believes the proposal is actionable, they will label the issue with <code>api-ready-for-review</code>.</li>
+<li><strong>Close as not actionable</strong>. Incase the issue didn't get enough traction to be distilled into a concrete proposal, they will close the issue.</li>
+<li><strong>Close as won't fix as proposed</strong>. Sometimes, the issue that is raised is a good one but the owner thinks the concrete proposal is not the right way to tackle the problem. In most cases, the owner will try to steer the discussion in a direction that results in a design that we believe is appropriate. However, for some proposals the problem is at the heart of the design which can't be easily changed without starting a new proposal. In those cases, the owner will close the issue and explain the issue the design has.</li>
+<li><strong>Close as won't fix</strong>. Similarly, if the proposal is taking the product in a direction we simply don't want to go, the issue might get closed. In that case, the problem isn't the proposed the design but the issue itself.</li>
+</ul>
 </li>
-<li><p>In the GitHub comment that indicates the status of your PR, you'll see the status of &quot;checks&quot; enabled on the repo. Note that in this example, there are two checks enabled, &quot;Commit Validation&quot; and &quot;OpenPublishing.Build&quot;:</p>
-<p><img src="media/validation-failed.png" alt="some checks failed"></p>
-<p>Build can pass even if commit validation fails.</p>
-</li>
-<li><p>Click <strong>Details</strong> for more information.</p>
-</li>
-<li><p>On the Details page, you'll see all the validation checks that failed, with information about how to fix the issues:</p>
-<p><img src="media/validation-details.png" alt="validation message"></p>
+<li><strong>API gets reviewed</strong>. The group conducting the review is called <em>FXDC</em>, which stands for <em>framework design core</em>. In the review, we'll take notes and provide feedback. After the review, we'll publish the notes in the API Review Repository. A good example of this is the <a href="https://github.com/dotnet/apireviews/tree/master/2015/01-07-immutable">review of immutable collections</a>. Multiple outcomes are possible:
+<ul>
+<li><strong>Approved</strong>. In this case, the label <code>api-ready-for-review</code> is replaced with <code>api-approved</code>.</li>
+<li><strong>Needs work</strong>. In case we believe the proposal isn't ready yet, we'll replace the label <code>api-ready-for-review</code> with <code>api-needs-work</code>.</li>
+<li><strong>Rejected</strong>. In case we we believe the proposal isn't a direction we want to go after, we simply write a comment and close the issue.</li>
+</ul>
 </li>
 </ol>
-<p>See the left-hand TOC of this article for the list of validations currently in the service.</p>
+<h2 id="api-design-guidelines">API Design Guidelines</h2>
+<p>The .NET design guidelines are captured in the famous book <a href="http://amazon.com/dp/0321545613">Framework Design Guidelines</a> by Krysztof Cwalina and Brad Abrams.</p>
+<p>A digest of the most important guidelines are available in our <a href="framework-design-guidelines-digest.html">documentation</a>. Long term, we'd like to publish the individual guidelines in a standalone repo on which we can also accept PRs and -- more importantly for API reviews -- link to.</p>
+<h2 id="api-review-notes">API Review Notes</h2>
+<p>The API review notes are being published in the API Review Repository (coming soon).</p>
 </article>
           </div>
           
@@ -118,7 +131,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/LuzFaltex/docs/blob/master/docs/contribute/validation-reference/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/LuzFaltex/docs/blob/master/docs/contribute/code/api-review.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Framework Design Guidelines - Digest | LuzFaltex Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Framework Design Guidelines - Digest | LuzFaltex Documentation ">
+    <meta name="generator" content="docfx 2.40.6.0">
+    
+    <link rel="preload" href="../../styles/search-worker.js" as="script">
+    <link rel="preload" href="../../fonts/glyphicons-halflings-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.minify.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/master.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/theme-switcher.css">
+    <link href="https://cdn.rawgit.com/noelboss/featherlight/1.7.6/release/featherlight.min.css" type="text/css" rel="stylesheet">
+    <meta name="theme-color" content="#99AAB5">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    <meta id="docfx-style:rel" content="../../">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="framework-design-guidelines---digest">Framework Design Guidelines - Digest</h1>
+
+<p>This page is a distillation and simplification of the most basic guidelines described in detail in a book titled <a href="http://amazon.com/dp/0321545613">Framework Design Guidelines</a> by Krzysztof Cwalina and Brad Abrams.</p>
+<p>Framework Design Guidelines were created in the early days of .NET Framework development. They started as a small set of naming and design conventions but have been enhanced, scrutinized, and refined to a point where they are generally considered the canonical way to design frameworks at Microsoft and LuzFaltex. They carry the experience and cumulative wisdom of thousands of developer hours over several versions of the .NET Framework.</p>
+<h2 id="general-design-principals">General Design Principals</h2>
+<h3 id="scenario-driven-design">Scenario-Driven Design</h3>
+<p>Start the design process of your public API by defining the top scenarios for each feature area. Write your code you would like the end users to write when they implement these secnarios using your API. Design your API based on the sample code you wrote. For example, when designing an API to measure elapsed time, you may write the following scenario code samples:</p>
+<pre><code class="lang-c#">// Scenario #1 : measure time elapsed
+Stopwatch watch = Stopwatch.StartNew();
+DoSomething();
+Console.WriteLine(watch.Elapsed);
+
+// Scenario #2 : reuse stopwatch
+Stopwatch watch = Stopwatch.StartNew();
+DoSomething();
+Console.WriteLine(watch.ElapsedMilliseconds);
+watch.Reset();
+watch.Start();
+DoSomething();
+Console.WriteLine(watch.Elapsed);
+
+// Scenario #3 : ...
+</code></pre>
+<h3 id="usability-studies">Usability Studies</h3>
+<p>Test usability of your API. Choose developers who are not familiar with your API and have them implement the main scenarios. Try to identify which parts of your API are not intuitive.</p>
+<h3 id="self-documenting-api">Self-Documenting API</h3>
+<p>Developers using your API should be able to implement the main scenarios without reading the documentation. Help users to discover what types they need to use in main scenarios and what the semantics of the main methods are by choosing intuitive names for most used types and members. Talk about naming choices during specification reviews.</p>
+<h3 id="understand-your-customer">Understand Your Customer</h3>
+<p>Realize that the majority of your customers are not like you. You should design the API for your customer, not for developers working in your close working group, who unlike the majority of your customers are experts in the technology you are trying to expose.</p>
+<h2 id="naming-guidelines">Naming Guidelines</h2>
+<p>Casing and naming guidelines apply only to public and protected identifiers, and privately implemented interface members. Teams are free to choose their own guidelines for internal and private identifiers.</p>
+<ul>
+<li><strong>DO</strong> use PascalCasing for all identifiers except parameter names. For example, use <code>TextColor</code> rather than <code>Textcolor</code> or <code>Text_Color</code>.</li>
+<li><strong>DO</strong> use camelCasing for all member parameter names. Prefix descriptive type parameter names with <code>T</code>.</li>
+</ul>
+<pre><code class="lang-c#">public interface ISessionChannel&lt;TSession&gt;
+    where TSession : ISession
+{
+    TSession Session { get; }
+}
+</code></pre>
+<ul>
+<li><strong>CONSIDER</strong> using <code>T</code> as the type parameter name for types with one single letter type parameter.</li>
+<li><strong>DO</strong> use PascalCasing or camelCasing for any acronyms over two characters long. For example, use <code>HtmlButton</code> rather than <code>HTMLButton</code>, but <code>System.IO</code> instead of <code>System.Io</code>.</li>
+<li><strong>DO NOT</strong> use acronyms that are not generally accepted in the field.</li>
+<li><strong>DO</strong> use well-known acronyms only when absolutely necessary. For example, use <code>UI</code> for User Interface and <code>Html</code> for Hyper-text Markup Language.</li>
+<li><strong>DO NOT</strong> use shortenings or contractions as part of identifier names. For example, use <code>GetWindow</code> rather than <code>GetWin</code>.</li>
+<li><strong>DO NOT</strong> use underscores, hyphens, or any other non-alphanumeric characters.</li>
+<li><strong>DO NOT</strong> use <a href="https://en.wikipedia.org/wiki/Hungarian_notation#Examples">Hungarian Notation</a></li>
+<li><strong>DO</strong> name types and properties with nouds or noun phrases</li>
+<li><strong>DO</strong> name methods and events with verbs or verb phrases. Always give event names that have a concept of before and after using the present particle and simple past tense. For example, an event that is raised before a <code>Form</code> closes should be named <code>Closing</code>. An event named after a <code>Form</code> is closed should be named <code>Closed</code>.</li>
+<li><strong>DO NOT</strong> use the <code>Before</code> or <code>After</code> prefixes to indicate pre- and post-events.</li>
+<li><strong>DO</strong> use the following prefixes:
+<ul>
+<li><code>I</code> for interfaces.</li>
+<li><code>T</code> for generic type parameters (except single letter parameters)</li>
+</ul>
+</li>
+<li><strong>DO</strong> use the follwing postfixes:
+<ul>
+<li><code>Exception</code> for types inheriting from <code>System.Exception</code>.</li>
+<li><code>Collection</code> for types inheriting from <code>IEnumerable</code>.</li>
+<li><code>Dictionary</code> for types implementing <code>IDictionary</code> or <code>IDictionary&lt;K,V&gt;</code>.</li>
+<li><code>EventArgs</code> for types inheriting from <code>System.EventArgs</code>.</li>
+<li><code>EventHandler</code> for types inheriting from <code>System.Delegate</code>.</li>
+<li><code>Attribute</code> for types inheriting from <code>System.Attribute</code>.</li>
+</ul>
+</li>
+<li><strong>DO NOT</strong> use the postfixes above for any other types</li>
+<li><strong>DO NOT</strong> postfix type names with <code>Flags</code> or <code>Enum</code>.</li>
+<li><strong>DO</strong> use plural noun phrases for flag enums (enums with values that support bitwise operations) and singular noun phrases for non-flag enums.</li>
+<li><strong>DO</strong> use the following template for naming namespaces:</li>
+</ul>
+<pre><code>&lt;Company&gt;.&lt;Technology&gt;[.Feature&gt;]
+</code></pre>
+<p>For example, <code>Microsoft.Office.ClipGallery</code>. Operating system components should use System namespaces.</p>
+<ul>
+<li><strong>DO NOT</strong> use organizational heirarchies as the basis for namespace heirarchies. Namespaces should correspond to scenarios regardless of what teams contribute APIs for those scenarios.</li>
+</ul>
+<h2 id="general-design-guidelines">General Design Guidelines</h2>
+<ul>
+<li><strong>DO</strong> use the most derived type for return values and the least derived type for input parameters. For example, take <code>IEnumerable</code> as an input parameter but return <code>Collection&lt;string&gt;</code> as the return type. Provide a clear API entry point for every scenario. Every feature area should have preferably one, but sometimes more, types that are the starting points for exploring given technology. We call such types Aggregate Components. Implementation of a large majority of scenarios in a given technology area should start with one of the Aggregate Components.</li>
+<li><strong>DO</strong> write sample code for your top scenarios. The first type used in all of these samples should be an Aggregate Component and the sample code should be straightforward. If the code gets longer than several lines, you need to redesign. Writing to an event log in Win32 API was around 100 lines of code. Writing to .NET Framework EventLog takes one line of code.</li>
+<li><strong>DO</strong> model higher level concepts (physical objects) rather than system level tasks with Aggregate Components. For example <code>File</code>, <code>Directory</code>, <code>Drive</code> are easier to understand than <code>Stream</code>, <code>Formatter</code>, <code>Comparer</code>.</li>
+<li><strong>DO NOT</strong> require users of your API to instantiate multiple objects in main scenarios. Simple tasks should be done with a <code>new</code> statement.</li>
+<li><strong>DO</strong> support so called &quot;Create-Set-Call&quot; programming style in all AggregateComponents. It should be possible ot instantiate every component with the default constructor, set one or more properties, and call simple methods or respond to events.</li>
+</ul>
+<pre><code class="lang-c#">var applicationLog = new EventLog();
+applicationLog.Source = &quot;MySource&quot;;
+applicationLog.WriteEntry(exception.Message);
+</code></pre>
+<ul>
+<li><strong>DO NOT</strong> require extensive instantialization before Aggregate Components can be used. If some initialization is necessary, the exception resulting from not having the component initialized should clearly explain what needs to be done.</li>
+<li><strong>DO</strong> carefully choose names for your types, methods, and parameters. Think hard about the first name people will try typing in the code editor when they explore the feature area. Reserve and use this name for the Aggregate Component. A common mistake is to use the &quot;best&quot; name for a base type. Run FxCop on your libraries.</li>
+<li><strong>DO</strong> ensure your library is CLS compliant. Apply <code>CLSCompliantAttribute</code> to your assembly.</li>
+<li><strong>DO</strong> prefer classes over interfaces.</li>
+<li><strong>DO NOT</strong> seal types unles you have a strong reason to do it.</li>
+<li><strong>DO NOT</strong> create mutable value types.</li>
+<li><strong>DO NOT</strong> ship abstractions (interfaces or abstract classes) without providing at least one concrete type implementing each abstraction. This helps to validate the interface design.</li>
+<li><strong>DO NOT</strong> ship interfaces without providing at least one API consuming the interface (A method taking the interface as a parameter). This helps validate the interface design.</li>
+<li><strong>AVOID</strong> public nested types.</li>
+<li><strong>DO</strong> apply <code>FlagsAttribute</code> to flag enums.</li>
+<li><strong>DO</strong> strongly prefer collections over arrays in public APIs.</li>
+<li><strong>DO NOT</strong> use <code>ArrayList</code>, <code>List&lt;T&gt;</code>, <code>HashTable</code>, or <code>Dictionary&lt;K,V&gt;</code> in public APIs. Use <code>Collection&lt;T&gt;</code>, <code>ReadOnlyCollection&lt;T&gt;</code>, <code>KeyedCollection&lt;K,V&gt;</code>, or <code>CollectionBase</code> subtypes instead. Note that the generic collections are only supported in the Framework version 2.0 and above.</li>
+<li><strong>DO NOT</strong> use error codes to report failures. Use Exceptions instead.</li>
+<li><strong>DO NOT</strong> throw <code>Exception</code> or <code>SystemException</code></li>
+<li><strong>AVOID</strong> catching the <code>Exception</code> base type.</li>
+<li><strong>DO</strong> prefer throwing existing common general purpose exceptions like <code>ArgumentNullException</code>, <code>ArgumentOutOfRangeException</code>, <code>InvalidOperationException</code> instead of defining custom exceptions. Throw the most specific exception possible.</li>
+<li><strong>DO</strong> ensure that exception messages are clear and actionable.</li>
+<li><strong>DO</strong> use <code>EventHandler&lt;T&gt;</code> for events, instead of manually defining event handler delegates.</li>
+<li><strong>DO</strong> prefer event-based APIs over delegate-based APIs.</li>
+<li><strong>DO</strong> prefer constructors over factory methods.</li>
+<li><strong>DO NOT</strong> expose public fields. Use properties instead.</li>
+<li><strong>DO</strong> prefer properties for concepts with a logical backing store but use methods in the following cases:
+<ul>
+<li>The operation is a conversion (such as <code>object.ToString()</code>)</li>
+<li>The operation is expensive (orders of magnitude slower than a field set would be)</li>
+<li>Obtaining a property value using the Get accessor has an observable side effect</li>
+<li>Calling the member twice in succession results in different results</li>
+<li>The member returns an array. Note: Mmebers returning arrays should return copies of an internal master array, not a reference to the internal array.</li>
+</ul>
+</li>
+<li><strong>DO</strong> allow properties to be set in any order. Properties should be stateless with respect to other properties.</li>
+<li><strong>DO NOT</strong> make members virtual unless you have a strong reason to do it.</li>
+<li><strong>AVOID</strong> finalizers.</li>
+<li><strong>DO</strong> implement <code>IDisposable</code> on all types acquiring native resources and those that provide finalizers.</li>
+<li><strong>DO</strong> be consistent in the ordering and naming of method parameters. It is common to have a set of overloaded methods with an increasing number of parameters to allow the developer to specify a desired level of information.</li>
+<li><strong>DO</strong> make sure all the related overloads havea consistent parameter order (same parameter shows up in the same place in the signature) and naming pattern The only method in such a group that should be virtual is the one that has the most parameters and only when extensibility is needed.</li>
+</ul>
+<pre><code class="lang-c#">public class Foo
+{
+    private readonly string _defaultForA = &quot;default value for a&quot;;
+    private readonly int _defaultForB = 42;
+
+    public void Bar()
+    {
+        Bar(_defaultForA, _defaultForB);
+    }
+
+    public void Bar(string a)
+    {
+        Bar(a, _defaultForB);
+    }
+
+    public void Bar(string a, int b)
+    {
+        // Core implementation here
+    }
+}
+</code></pre>
+<ul>
+<li><strong>AVOID</strong> <code>out</code> and <code>ref</code> parameters.</li>
+</ul>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="https://msdn.microsoft.com/en-us/library/bb429476.aspx">FxCop</a> is a code analysis tool that checks managed code assemblies for conformance with the <a href="http://amazon.com/dp/0321545613">Framework Design Guidelines</a> (also see <a href="https://msdn.microsoft.com/en-us/library/ms229042.aspx">MSDN</a>).</li>
+<li>Presentations:
+<ul>
+<li><a href="http://blogs.msdn.com/kcwalina/archive/2007/03/29/1989896.aspx">Overview of the Framework Design Guidelines</a></li>
+<li><a href="http://blogs.msdn.com/kcwalina/archive/2008/01/08/FrameworkEngineering.aspx">TechEd 2007 Presentation about framework engineering</a></li>
+</ul>
+</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="theme-switch-field">
+                <p>Theme</p>
+                <select id="theme-switcher">
+                  <option value="dark">Dark
+                  <option value="gray">Gray
+                  <option value="light">Light
+                </select>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/LuzFaltex/docs/blob/master/docs/contribute/code/framework-design-guidelines-digest.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Portions of this page are (c) LuzFaltex 2014-2018 // Powered by <a href="https://github.com/dotnet/docfx">DocFX</a>
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/noelboss/featherlight/master/release/featherlight.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../../styles/plugin-featherlight.js"></script>
+    <script type="text/javascript" src="../../styles/styleswitcher.js"></script>
+    <script type="text/javascript" src="https://malsup.github.io/jquery.corner.js"></script>
+    <script type="text/javascript" src="../../styles/cornerify.js"></script>  </body>
+</html>

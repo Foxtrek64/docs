@@ -1,0 +1,281 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Issue Guide | LuzFaltex Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Issue Guide | LuzFaltex Documentation ">
+    <meta name="generator" content="docfx 2.40.6.0">
+    
+    <link rel="preload" href="../../styles/search-worker.js" as="script">
+    <link rel="preload" href="../../fonts/glyphicons-halflings-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.minify.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/master.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/theme-switcher.css">
+    <link href="https://cdn.rawgit.com/noelboss/featherlight/1.7.6/release/featherlight.min.css" type="text/css" rel="stylesheet">
+    <meta name="theme-color" content="#99AAB5">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    <meta id="docfx-style:rel" content="../../">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="issue-guide">Issue Guide</h1>
+
+<p>This page outlines how the LuzFaltex team thinks about and handles issues. For us, issues represent actionable work that should be done at some future point. IT may be as simple as a small product or test bug or as large as the work tracking the design of a new feature. We will keep issues open even if the LuzFaltex team internally has no plans to address them in an upcoming release, as long as we consider the issue to fall under are purview.</p>
+<h2 id="when-we-close-issues">When we close issues</h2>
+<p>As noted above, we don't close issues just because we don't plan to address them in an upcoming release. So why do we close issues? There are a few major reasons:</p>
+<ol>
+<li>Issues unrelated to LuzFaltex projects. When possible, we'll try to find a better home for the issue and point you to it.</li>
+<li>Cross-cutting work better suited for another team. Sometimes the line between the framework and the product blurs. For some issues, we may feel that the work is better suited for the framework team or a particular project team or another partner. In these cases, we'll close the issue and open it with the partner team. If they end up not deciding to take on the issue, we can reconsider it here.</li>
+</ol>
+<p>Sometimes after debate, we'll decide that an issue isn't a good fit. In that case, we'll also close it. Because of this, we ask that you don't start working on an issue until it's tagged with <code>up-for-grabs</code> or <code>api-approved</code>. Both you and the team will be unhappy if you spend time and effort working on a change we'll ultimately be unable to take. We try to avoid that.</p>
+<h2 id="labels">Labels</h2>
+<p>We use labels on our issues in order to classify them. We have the following categories per issue:</p>
+<ul>
+<li><strong>Area</strong>: These area-* labels call out the assembly or assemblies the issue applies to. In addition to labels per assembly, we have a few other area labels: <code>aria-infrastructure</code> for issues that relate to our build or test infrastructure and <code>area-Meta</code> for issues that deal with the repository itself, the direction of the project, our processes, etc. See the [full list of areas] for more information(#areas).</li>
+<li><strong>Issue Type</strong>: These labels classify the type of issue. We use the following types:
+<ul>
+<li><code>bug</code>: Bugs in an assembly</li>
+<li><code>api-*</code>: Issues which should add APIs to an assembly (see the <a href="api-review.html">API Review Process</a> for details).</li>
+<li><code>enhancement</code>: Improvements to an assembly which do not add new APIs (e.g. performance improvements, code cleanup).</li>
+<li><code>test bug</code>: Bugs in the tests for a specific assembly.</li>
+<li><code>test enhancement</code>: Improvements in the tests for a specific assembly (e.g. improving test coverage).</li>
+<li><code>documentation</code>: Issues related to documentation (e.g. incorrect documentation, enhancement requests).</li>
+<li><code>question</code>: Questions about the product, source code, etc.</li>
+</ul>
+</li>
+<li><strong>Other</strong>:
+<ul>
+<li><code>up-for-grabs</code>: Small sections of work which we believe are well scoped. These sorts of issues are a good place to start if you're new. Anyone is free to work on these issues.</li>
+<li><code>needs more info</code>: Issues which need more information to be actionable. Usually this will be because we can't reproduce a reported bug. We'll close these issues after a little bit if we haven't gotten actionable information, but we welcome folks who have acquired more information to open the issue.</li>
+<li><code>blocked</code>: Issues which can't proceed until another issue is resolved.</li>
+<li><code>third-party</code>: Issues which are caused by a third-party library</li>
+<li><code>os-linux</code>, <code>os-windows</code>, <code>os-mac-os-x</code>: Identifies an issue as being related to a particular OS. Add as many of these as are appropriate.</li>
+</ul>
+</li>
+</ul>
+<p>In addition to the above, we have a handful of other labels we use to help classify our issues. Some these tag cross-cutting concerns whereas others are used to help us track additional work needed before closing an issue.</p>
+<h2 id="milestones">Milestones</h2>
+<p>We use milestones to prioritize work for each upcoming release.</p>
+<h2 id="assignee">Assignee</h2>
+<p>We assign each issue to an assignee, when the assignee is ready to pick up the work and start working on it. If the issue is not assigned to anyone and you want to pick it up, please say so - we will assign the issue to you. If the issue is already assigned with someone, please coordinate with the assignee before you start working on it.</p>
+<h2 id="areas">Areas</h2>
+<p>Areas are tracked by labels <code>area-*</code>. Each area typically corresponds with one or more contract assemblies.</p>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Owners / Experts</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>area-Infrastructure</td>
+<td>@foxtrek64</td>
+<td>Covers: <ul><li>Packaging</li><li>Build and test infrastructure</li></ul><br></td>
+</tr>
+<tr>
+<td>area-Meta</td>
+<td>@foxtrek64</td>
+<td>Issues without clear association to any API/Contract, e.g. <ul><li>New contract proposals</li><li>Project docs</li></ul></td>
+</tr>
+<tr>
+<td><strong>Contract Assemblies</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LuzFaltex.Authentication</td>
+<td>@foxtrek64</td>
+<td>Reusable authentication library</td>
+</tr>
+</tbody>
+</table>
+<h2 id="triage-rules---simplified">Triage rules - simplified</h2>
+<ol>
+<li>Each issue has exactly one <code>area-*</code> label</li>
+<li>Issue has no Assignee, unless someone is working on the issue at the moment</li>
+<li>Use <code>up-for-grabs</code> as much as possible, ideally with a quick note about next steps / complexity of the issue.</li>
+<li>Set milestone to <strong>Future</strong></li>
+<li>Each issue has exactly one &quot;issue type&quot; label (<code>bug</code>, <code>enhancement</code>, <code>api-needs-work</code>, <code>test bug</code>, <code>test enhancement</code>, <code>question</code>, <code>documentation</code>, etc.)</li>
+<li>Don't be afraid to say no or close issues - just explain why and be polite</li>
+<li>Don't be afraid to be wrong - just be flexible when new information appears.</li>
+</ol>
+<p>Feel free to use any additional labels if it helps your triage efforts.</p>
+<h3 id="motivation-for-triage-rules">Motivation for triage rules</h3>
+<ol>
+<li>Each issue has exactly one <code>area-*</code> label
+<ul>
+<li>Motivation: Issues with multiple areas have loose responsibility (everyone blames the other side) and issues are double counted in reports.</li>
+</ul>
+</li>
+<li>Issue has no <strong>Assignee</strong> unless someone is working on the issue at the moment.
+<ul>
+<li>Motivation: Observation is that contributors are less likely to grab assigned issues, no matter what the repo rules say.</li>
+</ul>
+</li>
+<li>Use <code>up-for-grabs</code> as much as possible, ideally with a quick note about the next steps / complexity of the issue.
+<ul>
+<li>Note: Per <a href="http://up-for-grabs.net/">up-for-grabs.net</a>, such issues should be no longer than a few night's worth of work. They should be actionable (i.e. no mysterious CI failures or issues that can't be tested in the open).</li>
+</ul>
+</li>
+<li>Set milestone to <strong>Future</strong>
+<ul>
+<li>Motivation: Helps communicate desire/timeline to the community. Can spark further priority/impact discussion.</li>
+</ul>
+</li>
+<li>Each issue has exactly one &quot;issue type&quot; label
+<ul>
+<li>Don't be afraid to be wrong when deciding <code>bug</code> vs <code>test bug</code> (flip a coin if you must). The most valuable values for tracking are <code>api-*</code> vs. <code>enhancement</code>, <code>question</code>, and <code>documentation</code>.</li>
+</ul>
+</li>
+<li>Don't be afraid to say no, or just close issues - just explain why and be polite.</li>
+<li>Don't be afraid to be wrong - just be flexible when new information appears.</li>
+</ol>
+<h3 id="pr-rules">PR Rules</h3>
+<ol>
+<li>Each PR has exactly one <code>area-*</code> label
+<ul>
+<li>Motivation: Area owners will get email notifications about new issues in their area.</li>
+</ul>
+</li>
+<li>PR as <strong>Assignee</strong> set to author of the PR. If it is a non-LuzFaltex engineer, then area owners are co-assignees.
+<ul>
+<li>Motivation: Area owners are responsible and do code reviews for PRs from external contributors. CoreFX engineers know how to get code reviews from others.</li>
+</ul>
+</li>
+<li>[Optional] Set milestone according to the branch (<code>master</code> = 2.1, <code>release/2.0</code> = 2.0, <code>release/1.0</code> = 1.0, etc.)
+<ul>
+<li>Motivation: Easier to track where fix ended and if it needs to be ported into another branch.</li>
+<li>Note: This is easily done after merge via simple queries and bulk-edits. You don't have to do this one.</li>
+</ul>
+</li>
+<li>Any other labels on PRs that are superfluous and not needed (exceptions: <code>blocked</code>)
+<ul>
+<li>Motivation: All the important info (&quot;issue type&quot; label, api approval label, OS label, etc.) is already captured on the associated issue(s).</li>
+</ul>
+</li>
+<li>Stuck or long-term blocked PRs (e.g. due to missing API approval, etc.) should be be closed and reopened once they are unstuck.
+<ul>
+<li>Motivation: Keep only active and WIP PRs. If a PR is stale and there is not an immediate path forward, consider closing the PR until it is unblocked/unstuck.</li>
+</ul>
+</li>
+<li>PR should be linked to the related issue(s) using auto-closing tags (e.g. &quot;Fixes #1234&quot;).</li>
+</ol>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="theme-switch-field">
+                <p>Theme</p>
+                <select id="theme-switcher">
+                  <option value="dark">Dark
+                  <option value="gray">Gray
+                  <option value="light">Light
+                </select>
+              </div>
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/LuzFaltex/docs/blob/master/docs/contribute/code/issue-guide.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Portions of this page are (c) LuzFaltex 2014-2018 // Powered by <a href="https://github.com/dotnet/docfx">DocFX</a>
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/noelboss/featherlight/master/release/featherlight.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../../styles/plugin-featherlight.js"></script>
+    <script type="text/javascript" src="../../styles/styleswitcher.js"></script>
+    <script type="text/javascript" src="https://malsup.github.io/jquery.corner.js"></script>
+    <script type="text/javascript" src="../../styles/cornerify.js"></script>  </body>
+</html>
